@@ -3,96 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REVIZA INFORMATION</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>REVIZA SYSTEM OVERRIDE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
-        /* RESET & DASAR */
+        /* CSS VARIABLE UNTUK MULTI-THEME (HIJAU / MERAH) */
+        :root {
+            --primary: #00ff33;
+            --primary-rgb: 0, 255, 51;
+            --bg-dark: #020602;
+            --terminal-box: rgba(0, 15, 5, 0.8);
+            --glow: 0 0 12px rgba(0, 255, 51, 0.6);
+            --laser-speed: 3.5s;
+        }
+
+        /* KONDISI SAAT MODE MERAH AKTIF */
+        body.theme-red {
+            --primary: #ff003c;
+            --primary-rgb: 255, 0, 60;
+            --bg-dark: #060202;
+            --terminal-box: rgba(15, 0, 5, 0.8);
+            --glow: 0 0 12px rgba(255, 0, 60, 0.6);
+        }
+
+        /* RESET & DASAR TERMINAL */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Share Tech Mono', monospace;
         }
         body {
-            background-color: #020005;
-            color: #fff;
+            background-color: var(--bg-dark);
+            color: var(--primary);
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
+            transition: background 0.5s ease;
         }
 
-        /* ANIMASI LOADING SCREEN */
+        /* BACKGROUND MATRIX CANVAS */
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        /* TERMINAL BOOTING SCREEN (LOADING SCREEN) */
         #loader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: #020005;
+            background: #000;
             z-index: 9999;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+            padding: 20px;
         }
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(162, 0, 255, 0.1);
-            border-top-color: #ff007f;
-            border-bottom-color: #a200ff;
-            border-radius: 50%;
-            animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+        .terminal-log {
+            width: 100%;
+            max-width: 400px;
+            font-size: 13px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            text-align: left;
+            line-height: 1.6;
         }
-        #loader p {
-            margin-top: 20px;
-            letter-spacing: 4px;
-            font-size: 12px;
+        .bypass-btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 24px;
             font-family: 'Orbitron', sans-serif;
-            color: #fff;
-            text-shadow: 0 0 10px #a200ff;
-            animation: pulseText 1.5s infinite;
+            font-weight: 900;
+            font-size: 14px;
+            cursor: pointer;
+            letter-spacing: 2px;
+            box-shadow: var(--glow);
+            text-transform: uppercase;
+            display: none; /* Muncul via JS */
+            animation: pulseBypass 1.5s infinite;
         }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-        @keyframes pulseText { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+        @keyframes pulseBypass {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); box-shadow: 0 0 20px var(--primary); }
+        }
 
-        /* ANIMASI BACKGROUND NEBULA / BLACKHOLE */
-        .blackhole-bg {
+        /* WIDGET FLOATING SYSTEM CONTROLS (TEMA & AUDIO) */
+        .system-controls {
             position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200vw;
-            height: 200vh;
-            background: conic-gradient(from 0deg, #020005, #120024, #000000, #2b004a, #050011, #1a0033, #020005);
-            z-index: -2;
-            animation: rotateBlackhole 40s linear infinite;
+            top: 15px;
+            width: 100%;
+            max-width: 480px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 100;
+            pointer-events: none;
         }
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: 
-                radial-gradient(2px 2px at 30px 40px, #fff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 70px 120px, #ff007f, rgba(0,0,0,0)),
-                radial-gradient(1.5px 1.5px at 120px 80px, #a200ff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 180px 150px, #fff, rgba(0,0,0,0));
-            background-repeat: repeat;
-            background-size: 250px 250px;
-            z-index: -1;
-            opacity: 0.6;
-            animation: twinkle 3s infinite alternate;
+        .control-widget {
+            pointer-events: auto;
+            background: var(--terminal-box);
+            border: 1px solid var(--primary);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--glow);
+            transition: all 0.3s;
+            color: var(--primary);
         }
-        @keyframes rotateBlackhole { 100% { transform: rotate(360deg); } }
-        @keyframes twinkle { 0% { opacity: 0.3; } 100% { opacity: 0.9; } }
+        .control-widget:hover {
+            background: var(--primary);
+            color: #000;
+            font-weight: bold;
+        }
+        
+        /* Animasi Audio Equalizer Mini */
+        .audio-wave {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 12px;
+        }
+        .audio-wave span {
+            width: 2px;
+            background-color: var(--primary);
+            height: 100%;
+            animation: bounceWave 0.8s ease infinite alternate;
+            transform-origin: bottom;
+        }
+        body.theme-red .audio-wave span { background-color: var(--primary); }
+        .audio-wave.muted span { animation: none; height: 2px !important; }
+        .audio-wave span:nth-child(2) { animation-delay: 0.2s; }
+        .audio-wave span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes bounceWave {
+            0% { transform: scaleY(0.2); }
+            100% { transform: scaleY(1.2); }
+        }
 
         /* CONTAINER UTAMA */
         .container {
             max-width: 480px;
             margin: 0 auto;
-            padding: 30px 16px 50px 16px;
+            padding: 75px 16px 40px 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -100,314 +167,404 @@
             z-index: 10;
         }
 
-        /* BANNER 16:9 */
+        /* JUDUL TERMINAL STYLE */
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: 3px;
+            text-shadow: var(--glow);
+            position: relative;
+        }
+        h1::before {
+            content: '[SYSTEM_OVERRIDE]: ';
+            font-size: 11px;
+            display: block;
+            letter-spacing: 1px;
+            opacity: 0.6;
+        }
+
+        /* DEKRIPSI KATA MUTIARA (INGGRIS & JEPANG) */
+        .decryption-box {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 12px;
+            background: var(--terminal-box);
+            border: 1px dashed rgba(var(--primary-rgb), 0.4);
+            border-radius: 6px;
+            width: 100%;
+        }
+        .decryption-box p { line-height: 1.5; }
+        .m-en { font-size: 11px; color: #fff; opacity: 0.95; margin-bottom: 6px; }
+        .m-jp { font-size: 11px; color: var(--primary); opacity: 0.85; }
+
+        /* FOTO LANSKAP (16:9 RATIO) */
         .banner {
             width: 100%;
             aspect-ratio: 16 / 9;
             object-fit: cover;
-            border-radius: 16px;
-            box-shadow: 0 0 25px rgba(162, 0, 255, 0.4), inset 0 0 20px rgba(255, 0, 127, 0.3);
+            border-radius: 8px;
+            box-shadow: var(--glow);
             margin-bottom: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            animation: float 5s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-8px) scale(1.01); }
+            border: 2px solid var(--primary);
         }
 
-        /* JUDUL UTAMA KECE */
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 22px;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 8px;
-            letter-spacing: 2px;
-            background: linear-gradient(to right, #fff, #d6a3ff, #ff80bf, #fff);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shineText 4s linear infinite;
-            text-shadow: 0 0 15px rgba(162, 0, 255, 0.5);
+        /* VIDEO CONTAINER PREMIUM LANSKAP (16:9 RATIO) */
+        .video-wrapper {
+            width: 100%;
+            background: #000;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--glow);
+            margin-bottom: 25px;
+            position: relative;
         }
-        @keyframes shineText {
-            to { background-position: 200% center; }
-        }
-
-        /* SUBTEXT MOTIVASI (INGGRIS & JEPANG) */
-        .motivation-box {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 0 10px;
-            max-width: 90%;
-        }
-        .motivation-en {
-            font-size: 11px;
-            font-style: italic;
-            color: #d1c4e9;
-            line-height: 1.5;
-            margin-bottom: 4px;
-            font-weight: 400;
-        }
-        .motivation-jp {
-            font-size: 10px;
-            color: #ffb3d9;
+        .video-wrapper::before {
+            content: '🔴 FEED_LIVE_STREAM_SYSTEM_CONNECTED';
+            display: block;
+            background: var(--terminal-box);
+            padding: 6px 12px;
+            font-size: 9px;
+            border-bottom: 1px solid var(--primary);
             letter-spacing: 1px;
-            opacity: 0.85;
+        }
+        video {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+            outline: none;
         }
 
-        /* SUSUNAN TOMBOL GRID (2 KOLOM) */
+        /* KUMPULAN TOMBOL HACKER LASER LINE GRID */
         .links-container {
             width: 100%;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
+            gap: 12px;
         }
 
-        /* SYSTEM ANIMATED LIGHT BORDER BUTTON */
+        /* TOMBOL SYSTEM LINK */
         .btn {
             position: relative;
             display: block;
             width: 100%;
-            padding: 1.5px; /* Ketebalan garis cahaya */
+            padding: 1.5px;
             background: transparent;
             text-decoration: none;
-            border-radius: 14px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.8);
             animation: heartbeat 2.5s infinite;
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s;
+            transition: transform 0.2s ease;
         }
-
-        /* Garis Cahaya Berputar Mengelilingi Tombol */
         .btn::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent 20%, #ff007f 40%, #a200ff 60%, transparent 80%);
-            animation: rotateLaser 3.5s linear infinite;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, transparent 20%, var(--primary) 50%, transparent 80%);
+            animation: rotateLaser var(--laser-speed) linear infinite;
         }
-
-        /* Bagian Dalam Tombol (Masking Layer) */
         .btn span {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 14px 10px;
-            background: rgba(10, 3, 20, 0.88);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 13px;
-            color: #f0e6ff;
-            text-transform: uppercase;
+            gap: 6px;
+            padding: 12px 6px;
+            background: #000;
+            border-radius: 7px;
+            color: #fff;
             font-weight: 700;
-            font-size: 10.5px;
-            letter-spacing: 1.2px;
-            transition: all 0.3s;
+            font-size: 11px;
+            letter-spacing: 1px;
             position: relative;
             z-index: 2;
+            transition: all 0.3s;
+            border: 1px solid rgba(var(--primary-rgb), 0.15);
         }
 
-        /* Efek Kilatan Tambahan di Dalam Saat Hover */
-        .btn span::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
-            transform: skewX(-25deg);
-            transition: none;
-        }
-        .btn:hover span::after {
-            left: 125%;
-            transition: 0.7s ease-in-out;
-        }
-
-        /* Variasi delay detak jantung tombol supaya lebih dinamis */
+        /* VARIATION DELAY BUTTONS */
         .links-container a:nth-child(2n) { animation-delay: 0.4s; }
         .links-container a:nth-child(3n) { animation-delay: 0.8s; }
 
-        @keyframes rotateLaser {
-            100% { transform: rotate(360deg); }
-        }
-
+        @keyframes rotateLaser { 100% { transform: rotate(360deg); } }
         @keyframes heartbeat {
-            0% { transform: scale(1); }
-            14% { transform: scale(1.03); }
-            28% { transform: scale(1); }
-            42% { transform: scale(1.03); }
-            70% { transform: scale(1); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); box-shadow: var(--glow); }
         }
 
-        /* KHUSUS TOMBOL UTAMA (WA ORDER) FULL WIDTH DI ATAS */
+        /* FEATURED MAIN BUTTON (WA ORDER) */
         .btn.featured {
             grid-column: span 2;
-            animation: featuredPulse 2s infinite;
         }
         .btn.featured span {
-            padding: 18px;
+            padding: 16px;
             font-size: 12px;
-            background: rgba(22, 5, 36, 0.9);
-            color: #fff;
-        }
-        .btn.featured::before {
-            background: conic-gradient(from 0deg, transparent 15%, #ff0055 35%, #00ffff 65%, transparent 85%);
-            animation-duration: 2.5s; /* Putaran laser tombol utama lebih cepat/agresif */
-        }
-        @keyframes featuredPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); box-shadow: 0 0 20px rgba(162, 0, 255, 0.5); }
+            color: var(--primary);
+            background: rgba(var(--primary-rgb), 0.05);
+            border: 1px solid var(--primary);
+            text-shadow: var(--glow);
         }
 
-        /* EFEK HOVER TOMBOL SECARA KESELURUHAN */
+        /* HOVER BUTTON EFFECT */
         .btn:hover {
             animation: none !important;
-            transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
+            transform: translateY(-2px);
         }
         .btn:hover span {
-            background: linear-gradient(135deg, rgba(162, 0, 255, 0.25), rgba(255, 0, 127, 0.25));
-            color: #fff;
+            background: var(--primary);
+            color: #000;
         }
 
-        /* WATERMARK / FOOTER */
+        /* HACKER FOOTER WATERMARK */
         .footer-watermark {
             grid-column: span 2;
-            margin-top: 40px;
+            margin-top: 35px;
             text-align: center;
             font-size: 9px;
             letter-spacing: 1px;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.3);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(var(--primary-rgb), 0.4);
+            border-top: 1px dashed rgba(var(--primary-rgb), 0.2);
             padding-top: 15px;
             width: 100%;
         }
         .footer-watermark b {
             font-family: 'Orbitron', sans-serif;
-            color: rgba(255, 0, 127, 0.7);
-            letter-spacing: 1.5px;
-            font-size: 10px;
+            color: #fff;
+            text-shadow: var(--glow);
         }
 
-        /* EFEK SPLASH KLIK */
+        /* SPLASH INTERACTIVE MATRIX EFFECT ON CLICK */
         .splash {
             position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 0, 127, 0.4);
-            box-shadow: 0 0 10px rgba(162, 0, 255, 0.5);
+            border: 1px solid var(--primary);
+            border-radius: 4px;
             pointer-events: none;
             transform: translate(-50%, -50%) scale(0);
-            animation: splashAnim 0.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            animation: splashAnim 0.4s linear forwards;
             z-index: 999;
+            font-size: 10px;
+            color: var(--primary);
+            padding: 2px;
+            background: var(--bg-dark);
         }
         @keyframes splashAnim {
-            to {
-                transform: translate(-50%, -50%) scale(3.5);
-                opacity: 0;
-            }
+            to { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div id="loader">
-        <div class="spinner"></div>
-        <p>INITIALIZING NEBULA...</p>
+    <audio id="bgAudio" src="https://kappa.lol/Oyk3ax" loop></audio>
+
+    <canvas id="matrixCanvas"></canvas>
+
+    <div class="system-controls">
+        <div class="control-widget" id="musicToggle">
+            <div class="audio-wave muted" id="waveIcon">
+                <span></span><span></span><span></span>
+            </div>
+            <span id="musicText">[ MUTE ]</span>
+        </div>
+        <div class="control-widget" id="themeToggle">
+            ⚡ [ CORE: GREEN ]
+        </div>
     </div>
 
-    <div class="blackhole-bg"></div>
-    <div class="stars"></div>
+    <div id="loader">
+        <div class="terminal-log" id="termLog"></div>
+        <button class="bypass-btn" id="bypassBtn" onclick="initializeSystem()">BYPASS FIREWALL</button>
+    </div>
 
     <div class="container">
-        <img src="https://www.upload.ee/image/19506194/file.jpg" alt="Reviza Banner" class="banner">
         
         <h1>REVIZA INFORMATION</h1>
 
-        <div class="motivation-box">
-            <p class="motivation-en">"Trust your own hidden pace. Every single broken stone you pass today is building the palace of your future stars."</p>
-            <p class="motivation-jp">「己の歩みを信じよ。今日の試練は、明日輝く星 di masa depan 礎となる。」</p>
+        <div class="decryption-box">
+            <p class="m-en">> "Trust your own hidden pace. Every single broken stone you pass today is building the palace of your future stars."</p>
+            <p class="m-jp">> 「己の歩みを信じよ。今日の試練は、明日輝く星の礎となる。」</p>
+        </div>
+
+        <img src="https://www.upload.ee/image/19506194/file.jpg" alt="Reviza Secure Banner" class="banner">
+
+        <div class="video-wrapper">
+            <video id="hackerVideo" controls playsinline>
+                <source src="https://u.pone.rs/wgyytgyd.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
 
         <div class="links-container">
             <a href="https://wa.me/message/H7BHGTEJI32DB1" class="btn featured" target="_blank">
-                <span>🛒 WA ORDER AM PREM</span>
+                <span>🔥 [ WA ORDER AM PREM ]</span>
             </a>
             
             <a href="https://linkfly.to/Zaayuyo" class="btn" target="_blank">
-                <span>🚀 LINKFLY</span>
+                <span>📡 [ LINKFLY ]</span>
             </a>
             <a href="https://saweria.co/REVIZAHOSHI" class="btn" target="_blank">
-                <span>💸 SAWERIA</span>
+                <span>💰 [ SAWERIA ]</span>
             </a>
             
             <a href="https://www.tiktok.com/@reviza4ever?_r=1&_t=ZS-971nHprADlV" class="btn" target="_blank">
-                <span>🎬 TIKTOK</span>
+                <span>⚡ [ TIKTOK ]</span>
             </a>
             <a href="https://whatsapp.com/channel/0029Vb7xLulDJ6GrrJGtU51t" class="btn" target="_blank">
-                <span>💿 PRESET AM</span>
+                <span>💿 [ PRESET AM ]</span>
             </a>
             
             <a href="https://whatsapp.com/channel/0029Vb7GvkQ545v2EiXRSG11" class="btn" target="_blank">
-                <span>💬 TESTI WA</span>
+                <span>📡 [ TESTI WA ]</span>
             </a>
             <a href="https://t.me/testizaayuyoo" class="btn" target="_blank">
-                <span>📣 TESTI TELE</span>
+                <span>📡 [ TESTI TELE ]</span>
             </a>
             
             <a href="https://t.me/zayuyoo" class="btn" target="_blank">
-                <span>✈️ TELEGRAM</span>
+                <span>🚀 [ TELEGRAM ]</span>
             </a>
             <a href="https://instagram.com/Always_revizaa" class="btn" target="_blank">
-                <span>📸 INSTAGRAM</span>
+                <span>👁️ [ INSTAGRAM ]</span>
             </a>
             
             <a href="https://whatsapp.com/channel/0029VbBc5ak3AzNL2pXnJJ1u" class="btn" target="_blank">
-                <span>📢 CH INFO</span>
+                <span>📊 [ SALURAN INFO ]</span>
             </a>
             <a href="https://chat.whatsapp.com/BW0zgEgEPUOI5Arb80RWG0" class="btn" target="_blank">
-                <span>👥 GRUP WA</span>
+                <span>🔒 [ GRUP WA ]</span>
             </a>
 
             <div class="footer-watermark">
-                © <b>𝙕𝙖𝙖𝑷𝒓𝒔𝒕</b> ALL RIGHT RESERVED 2024-2026<br>CREATOR PRESET ALIGHT MOTION
+                © <b>𝙕𝙖𝙖𝑷𝒓𝒔𝒕</b> ALL RIGHT RESERVED 2024-2026<br>[ CREATOR PRESET ALIGHT MOTION ]
             </div>
         </div>
     </div>
 
     <script>
-        // 1. Logika Smooth Loading Screen
-        window.addEventListener('load', () => {
+        const audio = document.getElementById('bgAudio');
+        const logBox = document.getElementById('termLog');
+        const bypassBtn = document.getElementById('bypassBtn');
+        const themeBtn = document.getElementById('themeToggle');
+        const musicBtn = document.getElementById('musicToggle');
+        const waveIcon = document.getElementById('waveIcon');
+        const musicText = document.getElementById('musicText');
+
+        // 1. SIMULASI LOG TERMINAL BOOTING
+        const logs = [
+            "Connecting to revizayowa.biz.id...",
+            "Loading security protocols... [OK]",
+            "Injecting preset modules into memory...",
+            "Bypassing modern browser audio block policy...",
+            "Decrypting creator credentials: ©ZaayPrst...",
+            "Exploit payload successfully generated.",
+            "READY FOR INTERFACE INJECTION."
+        ];
+        
+        let logIndex = 0;
+        function printLogs() {
+            if (logIndex < logs.length) {
+                logBox.innerHTML += `> ${logs[logIndex]}<br>`;
+                logIndex++;
+                setTimeout(printLogs, 250);
+            } else {
+                bypassBtn.style.display = 'block';
+            }
+        }
+        printLogs();
+
+        // 2. KONTROL AUDIO UTAMA (AUTOPLAY VIA TRICK BYPASS)
+        function initializeSystem() {
+            audio.play().then(() => {
+                waveIcon.classList.remove('muted');
+                musicText.innerText = "[ MUSIC: ON ]";
+            }).catch(e => console.log("Audio play blocked initially: ", e));
+            
+            document.getElementById('loader').style.opacity = '0';
             setTimeout(() => {
-                const loader = document.getElementById('loader');
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-            }, 1000); 
+                document.getElementById('loader').style.display = 'none';
+            }, 500);
+        }
+
+        // 3. TOGGLE PLAY / PAUSE MANUAL AUDIO WIDGET
+        musicBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                waveIcon.classList.remove('muted');
+                musicText.innerText = "[ MUSIC: ON ]";
+            } else {
+                audio.pause();
+                waveIcon.classList.add('muted');
+                musicText.innerText = "[ MUSIC: MUTED ]";
+            }
         });
 
-        // 2. Logika Efek Splash Air saat Klik Area Kosong
+        // 4. CHANGER THEME (GREEN HACKER VS RED HACKER ALERT)
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('theme-red');
+            if (document.body.classList.contains('theme-red')) {
+                themeBtn.innerHTML = "🚨 [ ALERT: RED ]";
+            } else {
+                themeBtn.innerHTML = "⚡ [ CORE: GREEN ]";
+            }
+        });
+
+        // 5. MATRIX RAIN ENGINE ANIMATION (CANVAS BASED)
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const katakana = "01010101010101011100SYSTEMOVERRIDEZAYUYO";
+        const alphabet = katakana.split("");
+        const fontSize = 14;
+        let columns = canvas.width / fontSize;
+        let rainDrops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Warna matrix mengikuti mode css variable yang aktif
+            ctx.fillStyle = document.body.classList.contains('theme-red') ? '#ff003c' : '#00ff33';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet[Math.floor(Math.random() * alphabet.length)];
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 30);
+
+        // 6. INTERACTIVE TERMINAL CLICK COMMAND EFFECT
         document.addEventListener('click', function(e) {
-            // Jika klik mendeteksi tombol atau bagian dalam tombol, abaikan agar splash tidak numpuk
-            if (e.target.closest('.btn')) return;
+            if (e.target.closest('.control-widget') || e.target.closest('.btn') || e.target.closest('video')) return;
 
             const splash = document.createElement('div');
             splash.classList.add('splash');
-            
             splash.style.left = e.pageX + 'px';
             splash.style.top = e.pageY + 'px';
-            splash.style.width = '35px';
-            splash.style.height = '35px';
+            
+            // Random output log text ala hacker saat area kosong di klik
+            const hexCodes = ["[0x7F]", "[PING]", "[INJECT]", "[BYPASS]", "[SYS_OK]"];
+            splash.innerText = hexCodes[Math.floor(Math.random() * hexCodes.length)];
             
             document.body.appendChild(splash);
-            
-            setTimeout(() => {
-                splash.remove();
-            }, 500);
+            setTimeout(() => splash.remove(), 400);
         });
     </script>
 </body>
