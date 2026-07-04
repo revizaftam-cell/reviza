@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVIZA INFORMATION</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* RESET & DASAR */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #020005;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* ANIMASI LOADING SCREEN */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #020005;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(162, 0, 255, 0.1);
+            border-top-color: #ff007f;
+            border-bottom-color: #a200ff;
+            border-radius: 50%;
+            animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+        }
+        #loader p {
+            margin-top: 20px;
+            letter-spacing: 4px;
+            font-size: 12px;
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            text-shadow: 0 0 10px #a200ff;
+            animation: pulseText 1.5s infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes pulseText { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+        /* ANIMASI BACKGROUND NEBULA / BLACKHOLE */
+        .blackhole-bg {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200vw;
+            height: 200vh;
+            background: conic-gradient(from 0deg, #020005, #120024, #000000, #2b004a, #050011, #1a0033, #020005);
+            z-index: -2;
+            animation: rotateBlackhole 40s linear infinite;
+        }
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                radial-gradient(2px 2px at 30px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 70px 120px, #ff007f, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 120px 80px, #a200ff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 180px 150px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 250px 250px;
+            z-index: -1;
+            opacity: 0.6;
+            animation: twinkle 3s infinite alternate;
+        }
+        @keyframes rotateBlackhole { 100% { transform: rotate(360deg); } }
+        @keyframes twinkle { 0% { opacity: 0.3; } 100% { opacity: 0.9; } }
+
+        /* CONTAINER UTAMA */
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 30px 16px 50px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* BANNER 16:9 */
+        .banner {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 0 25px rgba(162, 0, 255, 0.4), inset 0 0 20px rgba(255, 0, 127, 0.3);
+            margin-bottom: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            animation: float 5s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.01); }
+        }
+
+        /* JUDUL UTAMA KECE */
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #fff, #d6a3ff, #ff80bf, #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 4s linear infinite;
+            text-shadow: 0 0 15px rgba(162, 0, 255, 0.5);
+        }
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+
+        /* SUBTEXT MOTIVASI (INGGRIS & JEPANG) */
+        .motivation-box {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 10px;
+            max-width: 90%;
+        }
+        .motivation-en {
+            font-size: 11px;
+            font-style: italic;
+            color: #d1c4e9;
+            line-height: 1.5;
+            margin-bottom: 4px;
+            font-weight: 400;
+        }
+        .motivation-jp {
+            font-size: 10px;
+            color: #ffb3d9;
+            letter-spacing: 1px;
+            opacity: 0.85;
+        }
+
+        /* SUSUNAN TOMBOL GRID (2 KOLOM) */
+        .links-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        /* SYSTEM ANIMATED LIGHT BORDER BUTTON */
+        .btn {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 1.5px; /* Ketebalan garis cahaya */
+            background: transparent;
+            text-decoration: none;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            animation: heartbeat 2.5s infinite;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s;
+        }
+
+        /* Garis Cahaya Berputar Mengelilingi Tombol */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent 20%, #ff007f 40%, #a200ff 60%, transparent 80%);
+            animation: rotateLaser 3.5s linear infinite;
+        }
+
+        /* Bagian Dalam Tombol (Masking Layer) */
+        .btn span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 10px;
+            background: rgba(10, 3, 20, 0.88);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 13px;
+            color: #f0e6ff;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 10.5px;
+            letter-spacing: 1.2px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Efek Kilatan Tambahan di Dalam Saat Hover */
+        .btn span::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transform: skewX(-25deg);
+            transition: none;
+        }
+        .btn:hover span::after {
+            left: 125%;
+            transition: 0.7s ease-in-out;
+        }
+
+        /* Variasi delay detak jantung tombol supaya lebih dinamis */
+        .links-container a:nth-child(2n) { animation-delay: 0.4s; }
+        .links-container a:nth-child(3n) { animation-delay: 0.8s; }
+
+        @keyframes rotateLaser {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.03); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.03); }
+            70% { transform: scale(1); }
+        }
+
+        /* KHUSUS TOMBOL UTAMA (WA ORDER) FULL WIDTH DI ATAS */
+        .btn.featured {
+            grid-column: span 2;
+            animation: featuredPulse 2s infinite;
+        }
+        .btn.featured span {
+            padding: 18px;
+            font-size: 12px;
+            background: rgba(22, 5, 36, 0.9);
+            color: #fff;
+        }
+        .btn.featured::before {
+            background: conic-gradient(from 0deg, transparent 15%, #ff0055 35%, #00ffff 65%, transparent 85%);
+            animation-duration: 2.5s; /* Putaran laser tombol utama lebih cepat/agresif */
+        }
+        @keyframes featuredPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); box-shadow: 0 0 20px rgba(162, 0, 255, 0.5); }
+        }
+
+        /* EFEK HOVER TOMBOL SECARA KESELURUHAN */
+        .btn:hover {
+            animation: none !important;
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
+        }
+        .btn:hover span {
+            background: linear-gradient(135deg, rgba(162, 0, 255, 0.25), rgba(255, 0, 127, 0.25));
+            color: #fff;
+        }
+
+        /* WATERMARK / FOOTER */
+        .footer-watermark {
+            grid-column: span 2;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 9px;
+            letter-spacing: 1px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+            width: 100%;
+        }
+        .footer-watermark b {
+            font-family: 'Orbitron', sans-serif;
+            color: rgba(255, 0, 127, 0.7);
+            letter-spacing: 1.5px;
+            font-size: 10px;
+        }
+
+        /* EFEK SPLASH KLIK */
+        .splash {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 0, 127, 0.4);
+            box-shadow: 0 0 10px rgba(162, 0, 255, 0.5);
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(0);
+            animation: splashAnim 0.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            z-index: 999;
+        }
+        @keyframes splashAnim {
+            to {
+                transform: translate(-50%, -50%) scale(3.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>INITIALIZING NEBULA...</p>
+    </div>
+
+    <div class="blackhole-bg"></div>
+    <div class="stars"></div>
+
+    <div class="container">
+        <img src="https://www.upload.ee/image/19506194/file.jpg" alt="Reviza Banner" class="banner">
+        
+        <h1>REVIZA INFORMATION</h1>
+
+        <div class="motivation-box">
+            <p class="motivation-en">"Trust your own hidden pace. Every single broken stone you pass today is building the palace of your future stars."</p>
+            <p class="motivation-jp">「己の歩みを信じよ。今日の試練は、明日輝く星 di masa depan 礎となる。」</p>
+        </div>
+
+        <div class="links-container">
+            <a href="https://wa.me/message/H7BHGTEJI32DB1" class="btn featured" target="_blank">
+                <span>🛒 WA ORDER AM PREM</span>
+            </a>
+            
+            <a href="https://linkfly.to/Zaayuyo" class="btn" target="_blank">
+                <span>🚀 LINKFLY</span>
+            </a>
+            <a href="https://saweria.co/REVIZAHOSHI" class="btn" target="_blank">
+                <span>💸 SAWERIA</span>
+            </a>
+            
+            <a href="https://www.tiktok.com/@reviza4ever?_r=1&_t=ZS-971nHprADlV" class="btn" target="_blank">
+                <span>🎬 TIKTOK</span>
+            </a>
+            <a href="https://whatsapp.com/channel/0029Vb7xLulDJ6GrrJGtU51t" class="btn" target="_blank">
+                <span>💿 PRESET AM</span>
+            </a>
+            
+            <a href="https://whatsapp.com/channel/0029Vb7GvkQ545v2EiXRSG11" class="btn" target="_blank">
+                <span>💬 TESTI WA</span>
+            </a>
+            <a href="https://t.me/testizaayuyoo" class="btn" target="_blank">
+                <span>📣 TESTI TELE</span>
+            </a>
+            
+            <a href="https://t.me/zayuyoo" class="btn" target="_blank">
+                <span>✈️ TELEGRAM</span>
+            </a>
+            <a href="https://instagram.com/Always_revizaa" class="btn" target="_blank">
+                <span>📸 INSTAGRAM</span>
+            </a>
+            
+            <a href="https://whatsapp.com/channel/0029VbBc5ak3AzNL2pXnJJ1u" class="btn" target="_blank">
+                <span>📢 CH INFO</span>
+            </a>
+            <a href="https://chat.whatsapp.com/BW0zgEgEPUOI5Arb80RWG0" class="btn" target="_blank">
+                <span>👥 GRUP WA</span>
+            </a>
+
+            <div class="footer-watermark">
+                © <b>𝙕𝙖𝙖𝑷𝒓𝒔𝒕</b> ALL RIGHT RESERVED 2024-2026<br>CREATOR PRESET ALIGHT MOTION
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Logika Smooth Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }, 1000); 
+        });
+
+        // 2. Logika Efek Splash Air saat Klik Area Kosong
+        document.addEventListener('click', function(e) {
+            // Jika klik mendeteksi tombol atau bagian dalam tombol, abaikan agar splash tidak numpuk
+            if (e.target.closest('.btn')) return;
+
+            const splash = document.createElement('div');
+            splash.classList.add('splash');
+            
+            splash.style.left = e.pageX + 'px';
+            splash.style.top = e.pageY + 'px';
+            splash.style.width = '35px';
+            splash.style.height = '35px';
+            
+            document.body.appendChild(splash);
+            
+            setTimeout(() => {
+                splash.remove();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVIZA INFORMATION</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* RESET & DASAR */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #020005;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* ANIMASI LOADING SCREEN */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #020005;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(162, 0, 255, 0.1);
+            border-top-color: #ff007f;
+            border-bottom-color: #a200ff;
+            border-radius: 50%;
+            animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+        }
+        #loader p {
+            margin-top: 20px;
+            letter-spacing: 4px;
+            font-size: 12px;
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            text-shadow: 0 0 10px #a200ff;
+            animation: pulseText 1.5s infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes pulseText { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+        /* ANIMASI BACKGROUND NEBULA / BLACKHOLE */
+        .blackhole-bg {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200vw;
+            height: 200vh;
+            background: conic-gradient(from 0deg, #020005, #120024, #000000, #2b004a, #050011, #1a0033, #020005);
+            z-index: -2;
+            animation: rotateBlackhole 40s linear infinite;
+        }
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                radial-gradient(2px 2px at 30px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 70px 120px, #ff007f, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 120px 80px, #a200ff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 180px 150px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 250px 250px;
+            z-index: -1;
+            opacity: 0.6;
+            animation: twinkle 3s infinite alternate;
+        }
+        @keyframes rotateBlackhole { 100% { transform: rotate(360deg); } }
+        @keyframes twinkle { 0% { opacity: 0.3; } 100% { opacity: 0.9; } }
+
+        /* CONTAINER UTAMA */
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 30px 16px 50px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* BANNER 16:9 */
+        .banner {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 0 25px rgba(162, 0, 255, 0.4), inset 0 0 20px rgba(255, 0, 127, 0.3);
+            margin-bottom: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            animation: float 5s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.01); }
+        }
+
+        /* JUDUL UTAMA KECE */
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #fff, #d6a3ff, #ff80bf, #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 4s linear infinite;
+            text-shadow: 0 0 15px rgba(162, 0, 255, 0.5);
+        }
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+
+        /* SUBTEXT MOTIVASI (INGGRIS & JEPANG) */
+        .motivation-box {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 10px;
+            max-width: 90%;
+        }
+        .motivation-en {
+            font-size: 11px;
+            font-style: italic;
+            color: #d1c4e9;
+            line-height: 1.5;
+            margin-bottom: 4px;
+            font-weight: 400;
+        }
+        .motivation-jp {
+            font-size: 10px;
+            color: #ffb3d9;
+            letter-spacing: 1px;
+            opacity: 0.85;
+        }
+
+        /* SUSUNAN TOMBOL GRID (2 KOLOM) */
+        .links-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        /* SYSTEM ANIMATED LIGHT BORDER BUTTON */
+        .btn {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 1.5px; /* Ketebalan garis cahaya */
+            background: transparent;
+            text-decoration: none;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            animation: heartbeat 2.5s infinite;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s;
+        }
+
+        /* Garis Cahaya Berputar Mengelilingi Tombol */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent 20%, #ff007f 40%, #a200ff 60%, transparent 80%);
+            animation: rotateLaser 3.5s linear infinite;
+        }
+
+        /* Bagian Dalam Tombol (Masking Layer) */
+        .btn span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 10px;
+            background: rgba(10, 3, 20, 0.88);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 13px;
+            color: #f0e6ff;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 10.5px;
+            letter-spacing: 1.2px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Efek Kilatan Tambahan di Dalam Saat Hover */
+        .btn span::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transform: skewX(-25deg);
+            transition: none;
+        }
+        .btn:hover span::after {
+            left: 125%;
+            transition: 0.7s ease-in-out;
+        }
+
+        /* Variasi delay detak jantung tombol supaya lebih dinamis */
+        .links-container a:nth-child(2n) { animation-delay: 0.4s; }
+        .links-container a:nth-child(3n) { animation-delay: 0.8s; }
+
+        @keyframes rotateLaser {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.03); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.03); }
+            70% { transform: scale(1); }
+        }
+
+        /* KHUSUS TOMBOL UTAMA (WA ORDER) FULL WIDTH DI ATAS */
+        .btn.featured {
+            grid-column: span 2;
+            animation: featuredPulse 2s infinite;
+        }
+        .btn.featured span {
+            padding: 18px;
+            font-size: 12px;
+            background: rgba(22, 5, 36, 0.9);
+            color: #fff;
+        }
+        .btn.featured::before {
+            background: conic-gradient(from 0deg, transparent 15%, #ff0055 35%, #00ffff 65%, transparent 85%);
+            animation-duration: 2.5s; /* Putaran laser tombol utama lebih cepat/agresif */
+        }
+        @keyframes featuredPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); box-shadow: 0 0 20px rgba(162, 0, 255, 0.5); }
+        }
+
+        /* EFEK HOVER TOMBOL SECARA KESELURUHAN */
+        .btn:hover {
+            animation: none !important;
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
+        }
+        .btn:hover span {
+            background: linear-gradient(135deg, rgba(162, 0, 255, 0.25), rgba(255, 0, 127, 0.25));
+            color: #fff;
+        }
+
+        /* WATERMARK / FOOTER */
+        .footer-watermark {
+            grid-column: span 2;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 9px;
+            letter-spacing: 1px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+            width: 100%;
+        }
+        .footer-watermark b {
+            font-family: 'Orbitron', sans-serif;
+            color: rgba(255, 0, 127, 0.7);
+            letter-spacing: 1.5px;
+            font-size: 10px;
+        }
+
+        /* EFEK SPLASH KLIK */
+        .splash {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 0, 127, 0.4);
+            box-shadow: 0 0 10px rgba(162, 0, 255, 0.5);
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(0);
+            animation: splashAnim 0.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            z-index: 999;
+        }
+        @keyframes splashAnim {
+            to {
+                transform: translate(-50%, -50%) scale(3.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>INITIALIZING NEBULA...</p>
+    </div>
+
+    <div class="blackhole-bg"></div>
+    <div class="stars"></div>
+
+    <div class="container">
+        <img src="https://www.upload.ee/image/19506194/file.jpg" alt="Reviza Banner" class="banner">
+        
+        <h1>REVIZA INFORMATION</h1>
+
+        <div class="motivation-box">
+            <p class="motivation-en">"Trust your own hidden pace. Every single broken stone you pass today is building the palace of your future stars."</p>
+            <p class="motivation-jp">「己の歩みを信じよ。今日の試練は、明日輝く星 di masa depan 礎となる。」</p>
+        </div>
+
+        <div class="links-container">
+            <a href="https://wa.me/message/H7BHGTEJI32DB1" class="btn featured" target="_blank">
+                <span>🛒 WA ORDER AM PREM</span>
+            </a>
+            
+            <a href="https://linkfly.to/Zaayuyo" class="btn" target="_blank">
+                <span>🚀 LINKFLY</span>
+            </a>
+            <a href="https://saweria.co/REVIZAHOSHI" class="btn" target="_blank">
+                <span>💸 SAWERIA</span>
+            </a>
+            
+            <a href="https://www.tiktok.com/@reviza4ever?_r=1&_t=ZS-971nHprADlV" class="btn" target="_blank">
+                <span>🎬 TIKTOK</span>
+            </a>
+            <a href="https://whatsapp.com/channel/0029Vb7xLulDJ6GrrJGtU51t" class="btn" target="_blank">
+                <span>💿 PRESET AM</span>
+            </a>
+            
+            <a href="https://whatsapp.com/channel/0029Vb7GvkQ545v2EiXRSG11" class="btn" target="_blank">
+                <span>💬 TESTI WA</span>
+            </a>
+            <a href="https://t.me/testizaayuyoo" class="btn" target="_blank">
+                <span>📣 TESTI TELE</span>
+            </a>
+            
+            <a href="https://t.me/zayuyoo" class="btn" target="_blank">
+                <span>✈️ TELEGRAM</span>
+            </a>
+            <a href="https://instagram.com/Always_revizaa" class="btn" target="_blank">
+                <span>📸 INSTAGRAM</span>
+            </a>
+            
+            <a href="https://whatsapp.com/channel/0029VbBc5ak3AzNL2pXnJJ1u" class="btn" target="_blank">
+                <span>📢 CH INFO</span>
+            </a>
+            <a href="https://chat.whatsapp.com/BW0zgEgEPUOI5Arb80RWG0" class="btn" target="_blank">
+                <span>👥 GRUP WA</span>
+            </a>
+
+            <div class="footer-watermark">
+                © <b>𝙕𝙖𝙖𝑷𝒓𝒔𝒕</b> ALL RIGHT RESERVED 2024-2026<br>CREATOR PRESET ALIGHT MOTION
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Logika Smooth Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }, 1000); 
+        });
+
+        // 2. Logika Efek Splash Air saat Klik Area Kosong
+        document.addEventListener('click', function(e) {
+            // Jika klik mendeteksi tombol atau bagian dalam tombol, abaikan agar splash tidak numpuk
+            if (e.target.closest('.btn')) return;
+
+            const splash = document.createElement('div');
+            splash.classList.add('splash');
+            
+            splash.style.left = e.pageX + 'px';
+            splash.style.top = e.pageY + 'px';
+            splash.style.width = '35px';
+            splash.style.height = '35px';
+            
+            document.body.appendChild(splash);
+            
+            setTimeout(() => {
+                splash.remove();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
