@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REVIZA · LINK SOSMED & PRODUK</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://revizayowa.biz.id/" />
+    <meta property="og:title" content="LINK SOSMED DAN PRODUK REVIZA" />
+    <meta property="og:image" content="https://www.upload.ee/image/19506194/file.jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Share Tech Mono',monospace; }
+        :root { --p:#ff00ff; --p-rgb:255,0,255; --s:#00ffff; --bg:rgba(10,0,20,0.85); --bdr:rgba(255,0,255,0.2); }
+        html, body { height:100%; overflow-x:hidden; background:#0a0015; }
+        body { position:relative; color:#fff; min-height:100vh; overflow-x:hidden; }
+        body::before { content:''; position:fixed; top:0; left:0; width:100%; height:100%; background:radial-gradient(circle at center,#1a0033,#0a0015); z-index:-2; }
+        #bg { position:fixed; top:0; left:0; width:100%; height:100%; overflow:hidden; z-index:-1; pointer-events:none; opacity:.08; }
+        #bg span { position:absolute; white-space:nowrap; font-family:'Orbitron',sans-serif; font-size:60px; font-weight:900; color:var(--p); animation:scroll 22s linear infinite; letter-spacing:8px; text-shadow:0 0 20px var(--p); }
+        #bg span:nth-child(2) { top:33%; animation-duration:28s; animation-delay:-4s; color:var(--s); text-shadow:0 0 20px var(--s); }
+        #bg span:nth-child(3) { top:66%; animation-duration:18s; animation-delay:-9s; color:#ff6b6b; text-shadow:0 0 20px #ff6b6b; }
+        @keyframes scroll { 0%{transform:translateX(100vw)} 100%{transform:translateX(-200vw)} }
+        .container > * { opacity:0; transform:translateY(10px); transition:opacity .3s, transform .3s; }
+        .container > *.vis { opacity:1; transform:translateY(0); }
+        #load { position:fixed; top:0; left:0; width:100vw; height:100vh; background:#000; z-index:9999; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:20px; transition:opacity .5s; overflow:hidden; }
+        #matrix { position:absolute; top:0; left:0; width:100%; height:100%; opacity:.05; pointer-events:none; z-index:0; }
+        .lp { position:relative; z-index:2; text-align:center; max-width:420px; width:100%; }
+        .lp h2, .lp .welcome, .lp .log { color:var(--p) !important; text-shadow:0 0 10px var(--p) !important; }
+        .lp h2 { font-family:'Orbitron',sans-serif; font-size:15px; letter-spacing:2px; animation:glitch .9s infinite alternate; }
+        .lp .welcome { font-size:11px; display:inline-block; background:rgba(255,0,255,.05); padding:3px 10px; border-radius:4px; border:1px solid rgba(255,0,255,.1); margin-bottom:8px; animation:glitch 1.4s infinite alternate; }
+        @keyframes glitch { 0%{transform:skewX(0)} 30%{transform:skewX(1.5deg)} 60%{transform:skewX(-1.5deg)} 100%{transform:skewX(0)} }
+        .scan-box { background:#000; border:1px solid rgba(255,0,255,.08); border-radius:6px; padding:8px 12px; margin-bottom:8px; text-align:left; min-height:90px; position:relative; overflow:hidden; }
+        .scan-box::before { content:''; position:absolute; top:0; left:0; width:100%; height:2px; background:linear-gradient(90deg,transparent,var(--p),transparent); animation:scanln 2s infinite; }
+        @keyframes scanln { 0%{transform:translateY(0);opacity:1} 50%{transform:translateY(70px);opacity:.3} 100%{transform:translateY(0);opacity:1} }
+        .scan-item { display:flex; justify-content:space-between; padding:2px 0; font-size:9px; color:#cc88ff; border-bottom:1px solid rgba(255,0,255,.03); }
+        .scan-item .st { color:#ffaa00; animation:blink .8s infinite alternate; }
+        .scan-item .st.done { color:var(--p); animation:none; }
+        .scan-item .st.pend { color:#664466; animation:none; }
+        @keyframes blink { 0%{opacity:.3} 100%{opacity:1} }
+        .bar-bg { width:100%; height:5px; background:#0a0a0a; border:1px solid rgba(255,0,255,.1); border-radius:3px; overflow:hidden; margin-bottom:8px; }
+        .bar-fill { height:100%; width:0%; background:linear-gradient(90deg,var(--p),var(--s)); box-shadow:0 0 10px var(--p); transition:width .2s; }
+        .log-box { background:rgba(0,0,0,.8); border:1px solid rgba(255,0,255,.05); padding:5px 10px; border-radius:4px; min-height:45px; font-size:9px; margin-bottom:8px; line-height:1.5; max-height:70px; overflow-y:auto; scrollbar-width:thin; scrollbar-color:var(--p) #111; }
+        .log-box::-webkit-scrollbar { width:2px; }
+        .log-box::-webkit-scrollbar-track { background:#111; }
+        .log-box::-webkit-scrollbar-thumb { background:var(--p); border-radius:2px; }
+        .log { display:block; animation:glitch .8s infinite alternate; }
+        .log.ok { color:var(--p); text-shadow:0 0 15px var(--p); animation:none; }
+        .btn-go { display:none; width:100%; padding:11px; background:linear-gradient(145deg,#1a1a2e,#0a0a15); border:2px solid var(--p); color:var(--p); font-family:'Orbitron',sans-serif; font-size:13px; font-weight:900; letter-spacing:3px; border-radius:8px; cursor:pointer; text-transform:uppercase; transition:.3s; box-shadow:0 3px 0 #000; text-shadow:0 0 10px var(--p); }
+        .btn-go:hover { background:var(--p); color:#000; box-shadow:0 3px 0 #000,0 0 20px var(--p); transform:translateY(-2px); }
+.btn { display:block; width:100%; text-decoration:none; border-radius:8px; padding:2px; background:linear-gradient(135deg,var(--p),var(--s)); box-shadow:0 3px 0 rgba(0,0,0,.4); transition:.2s; cursor:pointer; }
+.btn:hover { transform:translateY(-2px); box-shadow:0 4px 0 rgba(0,0,0,.3); }
+.btn:active { transform:translateY(3px); box-shadow:0 1px 0 rgba(0,0,0,.4); }
+.btn span { display:flex; align-items:center; justify-content:center; gap:4px; padding:9px 7px; background:rgba(0,0,0,.7); border-radius:6px; color:#fff; font-weight:700; font-size:9px; letter-spacing:.5px; text-transform:uppercase; transition:.2s; border:1px solid rgba(255,255,255,.03); animation:glitch 2s infinite alternate; }
+.btn:hover span { background:rgba(var(--p-rgb),.08); color:var(--p); border-color:rgba(var(--p-rgb),.15); }
+.btn-main { display:block; width:100%; text-decoration:none; border-radius:8px; padding:2px; background:linear-gradient(135deg,var(--p),var(--s)); box-shadow:0 3px 0 rgba(0,0,0,.4); transition:.2s; cursor:pointer; }
+.btn-main:hover { transform:translateY(-2px); box-shadow:0 4px 0 rgba(0,0,0,.3); }
+.btn-main:active { transform:translateY(3px); box-shadow:0 1px 0 rgba(0,0,0,.4); }
+.btn-main span { display:flex; align-items:center; justify-content:center; gap:4px; padding:11px; background:rgba(0,0,0,.7); border-radius:6px; color:var(--p); font-weight:900; font-size:11px; letter-spacing:1px; text-transform:uppercase; transition:.2s; border:1px solid rgba(var(--p-rgb),.08); animation:glitch 2s infinite alternate; }
+.btn-main:hover span { background:var(--p); color:#000; border-color:var(--p); }
+.mus { width:100%; background:rgba(0,0,0,.4); border:1px solid var(--bdr); border-radius:8px; padding:8px 12px; display:flex; align-items:center; gap:8px; margin-bottom:12px; cursor:pointer; transition:.2s; }
+.mus:hover { border-color:var(--p); }
+.disk { width:28px; height:28px; border-radius:50%; background:conic-gradient(from 0deg,#222,#555,#222,#555,#222); border:2px solid var(--p); flex-shrink:0; display:flex; align-items:center; justify-content:center; animation:spin 3s linear infinite; animation-play-state:paused; }
+.disk::after { content:''; width:4px; height:4px; border-radius:50%; background:var(--p); }
+.disk.play { animation-play-state:running; }
+@keyframes spin { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+.spec { display:flex; align-items:flex-end; gap:2px; flex:1; height:18px; }
+.spec span { flex:1; height:4px; background:var(--p); border-radius:2px; min-width:2px; transition:height .08s; }
+.minfo { display:flex; flex-direction:column; font-size:7px; color:#aaa; line-height:1.3; flex-shrink:0; min-width:80px; }
+.minfo .ttl { color:#fff; font-weight:bold; font-size:8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.minfo .dur { font-size:7px; color:var(--p); }
+.minfo .dom { font-size:6px; color:rgba(255,255,255,.12); }
+.hamb { position:fixed; top:8px; right:8px; z-index:300; cursor:pointer; background:var(--bg); border:2px solid var(--bdr); border-radius:6px; padding:5px 8px; transition:opacity .3s, transform .3s; display:flex; flex-direction:column; gap:2px; align-items:center; opacity:1; transform:translateY(0); pointer-events:auto; }
+.hamb.hid { opacity:0; transform:translateY(-12px); pointer-events:none; }
+.hamb.open { opacity:0; transform:scale(.8); pointer-events:none; }
+.hamb .bar { width:16px; height:2px; background:var(--p); border-radius:2px; }
+.hamb .bar:nth-child(2) { width:11px; }
+.hamb .bar:nth-child(3) { width:6px; }
+.drawer { position:fixed; top:0; right:-280px; width:260px; height:100vh; background:rgba(0,0,0,.95); border-left:2px solid var(--bdr); z-index:299; padding:20px 16px; transition:right .3s ease; overflow-y:auto; display:flex; flex-direction:column; }
+.drawer.open { right:0; }
+.drawer .dt { font-family:'Orbitron',sans-serif; font-size:12px; color:var(--p); margin-bottom:10px; border-bottom:1px solid var(--bdr); padding-bottom:6px; letter-spacing:1px; }
+.drawer .grid { display:flex; flex-direction:column; gap:5px; flex:1; }
+.drawer .btn { margin:0; }
+.drawer .btn span { padding:8px 10px; font-size:9px; justify-content:flex-start; }
+.drawer .con { margin-top:10px; padding-top:8px; border-top:1px solid var(--bdr); font-size:7px; color:#88ff88; line-height:1.6; opacity:.5; }
+.drawer .con .log { display:block; animation:glitch 1.2s infinite alternate; }
+.ov { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,.3); z-index:298; display:none; }
+.ov.show { display:block; }
+.container { max-width:420px; margin:0 auto; padding:55px 12px 70px; display:flex; flex-direction:column; align-items:center; position:relative; z-index:10; }
+.title { font-family:'Orbitron',sans-serif; text-align:center; margin-bottom:3px; color:#fff; font-size:13px; letter-spacing:1px; }
+.domain { text-align:center; font-size:7px; color:rgba(255,255,255,.12); letter-spacing:2px; margin-bottom:5px; font-family:'Orbitron',sans-serif; }
+.glitch { position:relative; display:inline-block; font-size:17px; font-weight:900; letter-spacing:2px; }
+.glitch::before,.glitch::after { content:attr(data-text); position:absolute; top:0; left:0; width:100%; height:100%; background:#0a0015; }
+.glitch::before { left:1px; text-shadow:-1px 0 #ff0044; clip:rect(20px,550px,70px,0); animation:g1 2.5s infinite alternate-reverse; }
+.glitch::after { left:-1px; text-shadow:-1px 0 #00ff66; clip:rect(70px,550px,110px,0); animation:g2 3s infinite alternate-reverse; }
+@keyframes g1 { 0%{clip:rect(10px,9999px,15px,0)} 50%{clip:rect(40px,9999px,50px,0)} 100%{clip:rect(30px,9999px,40px,0)} }
+@keyframes g2 { 0%{clip:rect(50px,9999px,60px,0)} 50%{clip:rect(20px,9999px,30px,0)} 100%{clip:rect(70px,9999px,80px,0)} }
+.quote { text-align:center; margin-bottom:12px; padding:6px 10px; background:var(--bg); border:1px dashed var(--bdr); border-radius:4px; width:100%; }
+.quote .en { font-size:8px; color:#fff; margin-bottom:1px; line-height:1.4; }
+.quote .jp { font-size:7px; color:var(--p); opacity:.5; }
+.banner { width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:6px; margin-bottom:12px; border:1px solid var(--bdr); }
+.vidbox { width:100%; background:#000; border:1px solid var(--bdr); border-radius:6px; overflow:hidden; margin-bottom:12px; }
+video { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
+.running { width:100%; overflow:hidden; background:rgba(var(--p-rgb),.03); padding:4px 0; border-top:1px solid var(--bdr); border-bottom:1px solid var(--bdr); margin-bottom:6px; }
+.running span { display:inline-block; white-space:nowrap; font-size:11px; color:#fff; text-shadow:0 0 5px var(--p); animation:marq 14s linear infinite; font-family:'Orbitron',sans-serif; letter-spacing:2px; }
+@keyframes marq { 0%{transform:translateX(100vw)} 100%{transform:translateX(-200vw)} }
+.typing { overflow:hidden; white-space:nowrap; border-right:2px solid var(--p); animation:type 2s steps(25) .5s forwards, blink-caret .6s step-end infinite; width:0; display:inline-block; }
+@keyframes type { from { width:0 } to { width:100% } }
+@keyframes blink-caret { 50% { border-color:transparent } }
+        .portfolio { width:100%; margin-top:12px; margin-bottom:12px; }
+        .portfolio .item { margin-bottom:16px; background:var(--bg); border:1px solid var(--bdr); border-radius:8px; overflow:hidden; }
+        .portfolio .item img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; border-bottom:1px solid var(--bdr); }
+        .portfolio .item .desc { padding:10px 12px; font-size:8px; line-height:1.6; color:#d0c0d0; text-align:justify; }
+        .portfolio .item .desc strong { color:var(--p); }
+        .mon { width:100%; background:rgba(0,0,0,.75); border:2px solid var(--bdr); border-radius:8px; padding:8px 10px; margin-top:10px; }
+        .mon .mt { font-family:'Orbitron',sans-serif; font-size:8px; color:var(--p); margin-bottom:5px; border-bottom:1px solid var(--bdr); padding-bottom:3px; display:flex; justify-content:space-between; }
+        .mon .mt .blink { animation:blink .6s step-end infinite; color:var(--p); }
+        .mon .row { display:flex; justify-content:space-between; font-size:7px; color:#cc88cc; margin-bottom:1px; margin-top:2px; }
+        .mon .row .dngr { color:var(--p); animation:pulse .8s infinite alternate; }
+        @keyframes pulse { 0%{opacity:.5} 100%{opacity:1} }
+        .mon .bbg { width:100%; height:4px; background:#1a0a1a; border:1px solid var(--bdr); border-radius:2px; overflow:hidden; margin-bottom:2px; }
+        .mon .bbg .fill { height:100%; background:linear-gradient(90deg,var(--p),var(--s)); box-shadow:0 0 6px var(--p); background-size:8px 8px; animation:stripe .4s linear infinite; }
+        @keyframes stripe { 0%{background-position:0 0} 100%{background-position:8px 0} }
+        .mon .cpu { width:45%; animation:cpu 3s infinite alternate; }
+        .mon .ram { width:68%; }
+        @keyframes cpu { 0%{width:15%} 50%{width:90%} 100%{width:45%} }
+        .mon .hack { display:flex; justify-content:space-between; font-size:6px; color:var(--p); margin-top:4px; padding-top:3px; border-top:1px solid var(--bdr); opacity:.4; animation:hp 1.5s infinite alternate; }
+        @keyframes hp { 0%{opacity:.3} 100%{opacity:.7} }
+        .bio { background:var(--bg); border-left:3px solid var(--p); padding:8px 10px; font-size:8px; line-height:1.5; color:#c0b0c0; text-align:justify; margin-top:8px; margin-bottom:8px; width:100%; border-radius:4px; }
+        .bio .hl { color:var(--p); font-weight:bold; text-shadow:0 0 8px var(--p); }
+        .bio .tl { display:block; margin-bottom:2px; font-size:8px; }
+        .footer { margin-top:8px; text-align:center; font-size:7px; letter-spacing:1px; line-height:1.5; color:rgba(255,255,255,.3); border-top:1px solid var(--bdr); padding-top:10px; width:100%; }
+        .footer b { font-family:'Orbitron',sans-serif; color:#fff; text-shadow:0 0 8px var(--p); }
+        @media (max-width:480px) {
+            .container { padding:45px 10px 60px; }
+            .title { font-size:12px; }
+            .glitch { font-size:15px; }
+            .btn span { font-size:8px; padding:8px 6px; }
+            .btn-main span { font-size:10px; padding:10px; }
+            .drawer { width:210px; right:-230px; padding:14px 12px; }
+            .drawer .btn span { font-size:8px; padding:8px 10px; }
+            .hamb .bar { width:14px; }
+            .hamb .bar:nth-child(2) { width:9px; }
+            .hamb .bar:nth-child(3) { width:5px; }
+            .spec span { min-width:1px; }
+            .portfolio .item .desc { font-size:7px; padding:8px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="bg"><span>REVIZA D KINK</span><span>REVIZA D KINK</span><span>REVIZA D KINK</span></div>
+
+<audio id="clickSnd" preload="none"><source src="https://u.pone.rs/klik.mp3" type="audio/mpeg" /></audio>
+<audio id="music" preload="none" loop><source src="https://u.pone.rs/xmnzukpq.mp3" type="audio/mpeg" /></audio>
+
+<div class="hamb" id="hambBtn"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+<div class="ov" id="ov"></div>
+<div class="drawer" id="drawer">
+    <div class="dt">≡ SOSMED REVIZA</div>
+    <div class="grid">
+        <a href="https://www.tiktok.com/@reviza4ever" class="btn" target="_blank"><span>⚡ TIKTOK</span></a>
+        <a href="https://instagram.com/Always_revizaa" class="btn" target="_blank"><span>👁️ INSTAGRAM</span></a>
+        <a href="https://www.youtube.com/@reviza4ever" class="btn" target="_blank"><span>▶️ YOUTUBE</span></a>
+        <a href="https://linkfly.to/Zaayuyo" class="btn" target="_blank"><span>📡 LINKFLY</span></a>
+        <a href="https://saweria.co/REVIZAHOSHI" class="btn" target="_blank"><span>💰 SAWERIA</span></a>
+        <a href="https://whatsapp.com/channel/0029Vb7xLulDJ6GrrJGtU51t" class="btn" target="_blank"><span>💿 PRESET AM</span></a>
+        <a href="https://whatsapp.com/channel/0029Vb7GvkQ545v2EiXRSG11" class="btn" target="_blank"><span>📡 TESTI WA</span></a>
+        <a href="https://t.me/testizaayuyoo" class="btn" target="_blank"><span>📡 TESTI TELE</span></a>
+        <a href="https://t.me/zayuyoo" class="btn" target="_blank"><span>🚀 TELEGRAM</span></a>
+        <a href="https://whatsapp.com/channel/0029VbBc5ak3AzNL2pXnJJ1u" class="btn" target="_blank"><span>📊 SALURAN INFO</span></a>
+        <a href="https://chat.whatsapp.com/BW0zgEgEPUOI5Arb80RWG0" class="btn" target="_blank"><span>🔒 GRUP WA</span></a>
+    </div>
+    <div class="con" id="console">
+        <span class="log">> SESSION: ACTIVE</span>
+        <span class="log">> UPTIME: <span id="dup">00:00:00</span></span>
+        <span class="log">> NODE: ONLINE</span>
+    </div>
+</div>
+
+<div id="load">
+    <canvas id="matrix"></canvas>
+    <div class="lp">
+        <h2>⧩ INITIALIZING</h2>
+        <div class="welcome">✦ SELAMAT DATANG DI WEBSITE REVIZA PEMULA ✦</div>
+        <div class="scan-box">
+            <div class="scan-item" id="s1"><span>> MEMORY</span><span class="st" id="st1">● SCANNING</span></div>
+            <div class="scan-item" id="s2"><span>> NETWORK</span><span class="st" id="st2">● SCANNING</span></div>
+            <div class="scan-item" id="s3"><span>> CRYPTO</span><span class="st" id="st3">● SCANNING</span></div>
+            <div class="scan-item" id="s4"><span>> FIREWALL</span><span class="st" id="st4">● SCANNING</span></div>
+            <div class="scan-item" id="s5"><span>> DATABASE</span><span class="st" id="st5">● SCANNING</span></div>
+        </div>
+        <div class="bar-bg"><div class="bar-fill" id="bar"></div></div>
+        <div class="log-box" id="logbox"><span class="log">> [SYS]: Booting...</span></div>
+        <button class="btn-go" id="goBtn" onclick="enter()">⏵ LANJUTKAN</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="running"><span>✦ ARIGATOU UDAH MAMPIR YAWW..😇😇 ✦</span></div>
+    <div class="title"><span class="glitch" data-text="LINK SOSMED & PRODUK REVIZA">LINK SOSMED &amp; PRODUK REVIZA</span></div>
+    <div class="domain">⚡ revizayowa.biz.id ⚡</div>
+    <div class="quote">
+        <div class="en"><span class="typing">"Trust your own hidden pace."</span></div>
+        <div class="jp"><span class="typing" style="animation-delay:1.5s;">「己 di 歩み wo 信じ yo」</span></div>
+    </div>
+    <img src="https://www.upload.ee/image/19506194/file.jpg" alt="banner" class="banner" />
+    <div class="vidbox"><video id="vid" loop muted playsinline preload="none"><source src="https://u.pone.rs/vuxzkknn.mp4" type="video/mp4" /></video></div>
+
+    <div class="mus" id="mus">
+        <div class="disk" id="disk"><span style="position:absolute;font-size:4px;color:#666;">♫</span></div>
+        <div class="spec" id="spec"></div>
+        <div class="minfo">
+            <span class="ttl" id="mtitle">REVIZA BEAT</span>
+            <span class="dur" id="mdur">⏵ 00:00</span>
+            <span class="dom">revizayowa.biz.id</span>
+        </div>
+    </div>
+
+    <a href="https://wa.me/message/H7BHGTEJI32DB1" class="btn-main" target="_blank"><span>🔥 WA ORDER AM PREM</span></a>
+    
+    <!-- TOMBOL PRODUK SUDAH DIPERBAIKI -->
+    <a href="https://produk.revizayowa.biz.id/" class="btn-main" style="margin-top:8px;"><span>📦 LIHAT PRODUK</span></a>
+            <div class="portfolio">
+            <div class="item">
+                <img src="https://files.catbox.moe/xzye64.jpg" alt="Ai Hoshino" loading="lazy" />
+                <div class="desc"><strong>Ai Hoshino</strong> — Idol brilian berusia 16 tahun dari grup B-Komachi. Ia dikenal dengan mata berbintang yang ikonik. Di balik pesonanya, Ai adalah sosok yang kesulitan memahami cinta karena masa lalunya yang kelam, namun ia sangat menyayangi anak kembarnya. Kebohongan adalah senjata utamanya di panggung.</div>
+            </div>
+            <div class="item">
+                <img src="https://files.catbox.moe/ln75cg.jpg" alt="Oshi no Ko" loading="lazy" />
+                <div class="desc"><strong>Oshi no Ko</strong> — Mengikuti kisah reinkarnasi di industri hiburan Jepang. Karakter utamanya adalah Ai Hoshino, Aqua, dan Ruby.<br /><br /><strong>Ai Hoshino</strong> — Idol 16 tahun yang sulit memahami cinta namun menyayangi anak kembarnya.<br /><br /><strong>Aqua</strong> — Anak laki-laki Ai yang bereinkarnasi dari dokter Gorou. Ia dingin, analitis, dan bertekad membalas dendam.<br /><br /><strong>Ruby</strong> — Anak perempuan Ai yang bereinkarnasi dari pasien Sarina. Ceria dan bercita-cita menjadi idol papan atas.</div>
+            </div>
+            <div class="item">
+                <img src="https://files.catbox.moe/xkux9w.jpg" alt="Aqua & Ruby" loading="lazy" />
+                <div class="desc"><strong>Aqua &amp; Ruby</strong> — Aqua (anak laki-laki Ai) bereinkarnasi dari dokter Gorou. Setelah kematian Ai, ia membalas dendam pada ayah kandungnya. Ruby (anak perempuan Ai) bereinkarnasi dari pasien Sarina. Ia ceria dan ingin menjadi idol seperti ibunya.</div>
+            </div>
+            <div class="item">
+                <img src="https://files.catbox.moe/i1w2vn.jpg" alt="Oshi no Ko Story" loading="lazy" />
+                <div class="desc"><strong>Sinopsis Oshi no Ko</strong> — Anime drama-misteri tentang industri idol. Dokter Gorou, penggemar Ai Hoshino, dibunuh dan bereinkarnasi sebagai anak kembarnya, Aqua. Saat Ai dibunuh, Aqua bertekad membalas dendam. Ruby berjuang menjadi idol. Anime ini mengungkap sisi gelap industri hiburan: persaingan, manipulasi media, dan bahaya bagi bintang muda.</div>
+            </div>
+        </div>
+
+        <div class="mon" id="mon">
+            <div class="mt"><span>> SYS_MONITOR</span><span class="blink">⚠ CRITICAL</span></div>
+            <div class="row"><span>CPU</span><span class="dngr" id="cpu">87%</span></div>
+            <div class="bbg"><div class="fill cpu" id="cpufill"></div></div>
+            <div class="row"><span>RAM</span><span class="dngr" id="ram">94%</span></div>
+            <div class="bbg"><div class="fill ram" id="ramfill" style="width:94%"></div></div>
+            <div class="row"><span>PING</span><span class="dngr" id="ping">∞ TIMEOUT</span></div>
+            <div class="row"><span>UPTIME</span><span class="dngr" id="uptime">00:00:00</span></div>
+            <div class="row" style="margin-top:3px;border-top:1px solid var(--bdr);padding-top:2px;"><span style="color:var(--p);">⚠ THREAT</span><span style="color:var(--p);animation:blink .5s step-end infinite;">ACTIVE</span></div>
+            <div class="hack"><span>▶ BRUTE</span><span>▶ PORT</span><span>▶ ROOTKIT</span></div>
+            <div style="margin-top:2px;font-size:5px;color:var(--p);opacity:.15;text-align:center;">[ HACKING ATTEMPT ]</div>
+        </div>
+
+        <div class="bio">
+            <span class="hl tl">>> AUTHOR_DATA...</span>
+            Sistem ini dikembangkan oleh <span class="hl">REVIZA</span> dengan <span class="hl">HTML, CSS, JS</span>.<br />
+            Reviza lahir di Aceh, <span class="hl">5 September 2007</span>. Spesialis Preset Alight Motion.<br />
+            Anime favorit: <i>Oshi no Ko</i> — waifu <span class="hl">Ai Hoshino</span>.<br />
+            <i>Follow sosial media Reviza ya!</i>
+        </div>
+
+        <div class="footer">
+            © <b>ZaaPrest</b> 2024-2026<br />[ CREATOR PRESET ALIGHT MOTION ]<br />
+            <span style="font-size:6px;color:rgba(255,255,255,.15);">revizayowa.biz.id</span>
+        </div>
+    </div>
+
+    <script>
+    const cs = document.getElementById('clickSnd');
+    function clickSound(){ try{ cs.currentTime=0; cs.play().catch(()=>{}); }catch(e){} }
+    document.querySelectorAll('.btn, .btn-main, .hamb, .mus, .btn-go').forEach(el=>{ el.addEventListener('click', clickSound); });
+
+    (function(){
+        const c=document.getElementById('matrix'), ctx=c.getContext('2d');
+        let w,h,cols,drops,fs=9,frame=0;
+        const chars='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>/{}[]|\\;:+=*&^%$#@!';
+        function resize(){ w=c.width=window.innerWidth; h=c.height=window.innerHeight; cols=Math.floor(w/fs); drops=[]; for(let i=0;i<cols;i++) drops[i]=Math.random()*-100; }
+        resize(); window.addEventListener('resize',resize);
+        function draw(){ frame++; if(frame%2===0){ ctx.fillStyle='rgba(0,0,0,0.03)'; ctx.fillRect(0,0,w,h); ctx.fillStyle='#ff66ff'; ctx.font=fs+'px monospace'; for(let i=0;i<drops.length;i++){ const ch=chars[Math.floor(Math.random()*chars.length)]; ctx.fillText(ch,i*fs,drops[i]*fs); if(drops[i]*fs>h&&Math.random()>.98)drops[i]=0; drops[i]++; } } requestAnimationFrame(draw); }
+        draw();
+    })();
+
+    const music=document.getElementById('music'), video=document.getElementById('vid');
+    const load=document.getElementById('load'), logbox=document.getElementById('logbox');
+    const go=document.getElementById('goBtn'), bar=document.getElementById('bar');
+    const items=[
+        {el:document.getElementById('s1'),st:document.getElementById('st1')},
+        {el:document.getElementById('s2'),st:document.getElementById('st2')},
+        {el:document.getElementById('s3'),st:document.getElementById('st3')},
+        {el:document.getElementById('s4'),st:document.getElementById('st4')},
+        {el:document.getElementById('s5'),st:document.getElementById('st5')}
+    ];
+    function addLog(t,c=''){ const p=document.createElement('span'); p.className='log '+c; p.innerHTML=t; logbox.appendChild(p); logbox.scrollTop=logbox.scrollHeight; }
+    window.addEventListener('DOMContentLoaded',()=>{
+        let p=0, si=0;
+        const steps=[
+            {at:10,msg:'> [SYS]: Boot...'},
+            {at:25,msg:'> [BIOS]: Hardware check...'},
+            {at:40,msg:'> [KERNEL]: Load modules...'},
+            {at:55,msg:'> [MEMORY]: ECC verify...'},
+            {at:70,msg:'> [NETWORK]: Ping...'},
+            {at:85,msg:'> [CRYPTO]: TLS ok...'},
+            {at:96,msg:'> [SYS]: Ready.'}
+        ];
+        const iv=setInterval(()=>{
+            p++; bar.style.width=p+'%';
+            const idx=Math.min(Math.floor(p/20),4);
+            for(let i=0;i<items.length;i++){
+                if(i<idx){ items[i].st.className='st done'; items[i].st.textContent='✓ DONE'; }
+                else if(i===idx){ items[i].st.className='st'; items[i].st.textContent='● SCANNING'; }
+                else { items[i].st.className='st pend'; items[i].st.textContent='○ PENDING'; }
+            }
+            while(si<steps.length && p>=steps[si].at){ addLog(steps[si].msg); si++; }
+            if(p>=100){
+                clearInterval(iv);
+                for(let i=0;i<items.length;i++){ items[i].st.className='st done'; items[i].st.textContent='✓ DONE'; }
+                addLog('<span class="ok">> [SUCCESS]: Sistem siap!</span>','ok');
+                go.style.display='block';
+            }
+        }, 45);
+    });
+
+    function enter(){
+        load.style.opacity='0';
+        setTimeout(()=>{ load.style.visibility='hidden'; }, 500);
+        try{ video.play().catch(()=>{}); }catch(e){}
+        music.play().then(()=>{
+            document.getElementById('disk').classList.add('play');
+            document.getElementById('mtitle').textContent='REVIZA BEAT ♪';
+            startSpec();
+        }).catch(()=>{});
+    }
+
+    const spec=document.getElementById('spec');
+    let bars=[], specInt;
+    for(let i=0;i<16;i++){ const b=document.createElement('span'); b.style.height='4px'; spec.appendChild(b); bars.push(b); }
+    function startSpec(){
+        if(specInt) return;
+        specInt=setInterval(()=>{
+            for(let i=0;i<bars.length;i++){
+                const h=Math.floor(Math.random()*14)+4;
+                bars[i].style.height=h+'px';
+                bars[i].style.opacity=0.3+(h/20);
+            }
+        }, 100);
+    }
+    function stopSpec(){ if(specInt){ clearInterval(specInt); specInt=null; } for(let i=0;i<bars.length;i++){ bars[i].style.height='4px'; bars[i].style.opacity=.15; } }
+
+    const mus=document.getElementById('mus'), disk=document.getElementById('disk'), mdur=document.getElementById('mdur');
+    mus.addEventListener('click',()=>{
+        if(music.paused){
+            music.play(); disk.classList.add('play');
+            document.getElementById('mtitle').textContent='REVIZA BEAT ♪';
+            startSpec();
+        }else{
+            music.pause(); disk.classList.remove('play');
+            document.getElementById('mtitle').textContent='⏸ PAUSED';
+            stopSpec();
+        }
+    });
+    music.addEventListener('loadedmetadata',()=>{
+        const d=music.duration;
+        if(!isNaN(d)){ const m=Math.floor(d/60), s=Math.floor(d%60); mdur.textContent='⏵ '+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'); }
+    });
+    let durInt;
+    music.addEventListener('play',()=>{
+        if(durInt) clearInterval(durInt);
+        durInt=setInterval(()=>{
+            const c=music.currentTime;
+            if(!isNaN(c)){
+                const m=Math.floor(c/60), s=Math.floor(c%60), t=music.duration;
+                if(!isNaN(t)&&t>0){
+                    const tm=Math.floor(t/60), ts=Math.floor(t%60);
+                    mdur.textContent='⏵ '+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')+' / '+String(tm).padStart(2,'0')+':'+String(ts).padStart(2,'0');
+                }
+            }
+        }, 1000);
+    });
+
+    const hbtn=document.getElementById('hambBtn'), drawer=document.getElementById('drawer'), ov=document.getElementById('ov');
+    let lastY=window.scrollY, st;
+    function handleScroll(){
+        const cur=window.scrollY, open=drawer.classList.contains('open');
+        if(open){ hbtn.classList.add('open'); return; }
+        if(cur>50 && cur>lastY){ hbtn.classList.add('hid'); hbtn.classList.remove('open'); }
+        else if(cur<lastY || cur<50){ hbtn.classList.remove('hid'); hbtn.classList.remove('open'); }
+        lastY=cur;
+    }
+    window.addEventListener('scroll',()=>{
+        if(st) cancelAnimationFrame(st);
+        st=requestAnimationFrame(handleScroll);
+    });
+    function toggleDrawer(){
+        const open=drawer.classList.toggle('open');
+        ov.classList.toggle('show');
+        if(open){ hbtn.classList.add('open'); }
+        else{ hbtn.classList.remove('open'); if(window.scrollY<50) hbtn.classList.remove('hid'); }
+    }
+    hbtn.addEventListener('click', toggleDrawer);
+    ov.addEventListener('click', toggleDrawer);
+
+    let dSec=0;
+    setInterval(()=>{
+        dSec++;
+        let h=Math.floor(dSec/3600), m=Math.floor((dSec%3600)/60), s=dSec%60;
+        h=h<10?'0'+h:h; m=m<10?'0'+m:m; s=s<10?'0'+s:s;
+        document.getElementById('dup').textContent=h+':'+m+':'+s;
+    }, 1000);
+
+    let monInt=null, mon=document.getElementById('mon');
+    function startMon(){
+        if(monInt) return;
+        monInt=setInterval(()=>{
+            let sec=parseInt(document.getElementById('uptime').textContent.split(':').reduce((a,v,i)=>a+parseInt(v)*Math.pow(60,2-i),0))||0;
+            sec++; let h=Math.floor(sec/3600), m=Math.floor((sec%3600)/60), s=sec%60;
+            h=h<10?'0'+h:h; m=m<10?'0'+m:m; s=s<10?'0'+s:s;
+            document.getElementById('uptime').textContent=h+':'+m+':'+s;
+            let cpu=Math.floor(Math.random()*50)+25;
+            document.getElementById('cpu').textContent=cpu+'%';
+            document.getElementById('cpufill').style.width=cpu+'%';
+            let ram=Math.floor(Math.random()*35)+60;
+            document.getElementById('ram').textContent=ram+'%';
+            document.getElementById('ramfill').style.width=ram+'%';
+            if(Math.random()>0.6) document.getElementById('ping').innerHTML='<span style="color:var(--p);">∞ TIMEOUT</span>';
+            else{ const ping=Math.floor(Math.random()*180)+10; document.getElementById('ping').textContent=ping+'ms'; }
+            document.querySelectorAll('.hack span').forEach(item=>{
+                if(Math.random()>0.7) item.textContent='▶ '+['BRUTE','PORT','ROOTKIT','SQL','BUFFER'][Math.floor(Math.random()*5)];
+            });
+        }, 1400);
+    }
+    function stopMon(){ if(monInt){ clearInterval(monInt); monInt=null; } }
+    const monObs=new IntersectionObserver(e=>{ e.forEach(entry=>{ if(entry.isIntersecting) startMon(); else stopMon(); }); }, {threshold:.1});
+    monObs.observe(mon);
+
+    const vidObs=new IntersectionObserver(e=>{ e.forEach(entry=>{ if(entry.isIntersecting){ try{ video.play().catch(()=>{}); }catch(e){} }else video.pause(); }); }, {threshold:.1});
+    vidObs.observe(document.querySelector('.vidbox'));
+
+    const fadeObs=new IntersectionObserver(e=>{ e.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('vis'); else entry.target.classList.remove('vis'); }); }, {threshold:.05});
+    document.querySelectorAll('.container > *').forEach(el=>fadeObs.observe(el));
+
+    for(let i=0;i<bars.length;i++){ bars[i].style.height='4px'; bars[i].style.opacity=.15; }
+    setTimeout(()=>{ const r=mon.getBoundingClientRect(); if(r.top<window.innerHeight && r.bottom>0) startMon(); }, 400);
+    </script>
+</body>
+</html>
