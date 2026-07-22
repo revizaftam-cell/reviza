@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>REVIZA · LINK SOSMED &amp; PRODUK</title>
+    <meta name="description" content="SALAH SATU KEGAGALANMU DI MASA DEPAN ADALAH KERAGUANMU SAAT INI — REVIZA • Alight Motion Preset." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="REVIZA" />
+    <meta property="og:url" content="https://revizayowa.biz.id/" />
+    <meta property="og:title" content="REVIZA • INFORMATION" />
+    <meta property="og:description" content="SALAH SATU KEGAGALANMU DI MASA DEPAN ADALAH KERAGUANMU SAAT INI." />
+    <meta property="og:image" content="https://cdn.nekohime.site/file/5q0o1dji.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="REVIZA • INFORMATION" />
+    <meta name="twitter:description" content="SALAH SATU KEGAGALANMU DI MASA DEPAN ADALAH KERAGUANMU SAAT INI." />
+    <meta name="twitter:image" content="https://cdn.nekohime.site/file/5q0o1dji.jpg" />
+    <meta name="theme-color" content="#d000ff" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+
+    <style>
+        /* === RESET === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        :root {
+            --bg: #0b0213;
+            --accent: #d000ff;
+            --accent2: #e040fb;
+            --card: rgba(20, 5, 35, 0.85);
+            --border: rgba(110, 0, 200, 0.45);
+            --text: #d1b3e8;
+            --text-dim: rgba(209, 179, 232, 0.6);
+        }
+
+        body {
+            background: linear-gradient(175deg, #16032f 0%, #09010e 55%, #03000a 100%);
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            line-height: 1.6;
+        }
+        body.no-scroll { overflow: hidden !important; touch-action: none; }
+
+
+        /* === LOADING SCREEN — REVIZA ROTATING LOGO === */
+        #loading { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(175deg, #12022a 0%, #070010 60%, #02000a 100%); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.9s ease, visibility 0.9s; padding: 20px; }
+        #loading.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+        .ld-box { max-width: 300px; width: 100%; text-align: center; }
+        .ld-orbit-wrap { position: relative; width: 150px; height: 150px; margin: 0 auto 26px; }
+        .ld-ring1 { position: absolute; inset: 0; border: 2px solid transparent; border-top: 2px solid var(--accent); border-right: 2px solid rgba(208,0,255,0.35); border-radius: 50%; animation: ldSpin 1.3s linear infinite; }
+        .ld-ring2 { position: absolute; inset: 14px; border: 2px solid transparent; border-bottom: 2px solid var(--accent2); border-left: 2px solid rgba(224,64,251,0.3); border-radius: 50%; animation: ldSpin 2.1s linear infinite reverse; }
+        .ld-ring3 { position: absolute; inset: 30px; border: 1.5px solid transparent; border-top: 1.5px solid rgba(208,0,255,0.55); border-radius: 50%; animation: ldSpin 0.85s linear infinite; }
+        .ld-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Orbitron', sans-serif; font-size: 15px; font-weight: 900; color: var(--accent); letter-spacing: 4px; white-space: nowrap; animation: revizaPulse 2s ease-in-out infinite; }
+        @keyframes ldSpin { to { transform: rotate(360deg); } }
+        @keyframes revizaPulse {
+            0%, 100% { text-shadow: 0 0 14px rgba(208,0,255,0.9), 0 0 30px rgba(208,0,255,0.5); transform: translate(-50%,-50%) scale(1); }
+            50% { text-shadow: 0 0 28px rgba(208,0,255,1), 0 0 60px rgba(208,0,255,0.75), 0 0 100px rgba(208,0,255,0.35); transform: translate(-50%,-50%) scale(1.1); }
+        }
+        .ld-dot-orb { position: absolute; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; top: 50%; left: 50%; margin-top: -4px; margin-left: -4px; box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(208,0,255,0.7); animation: orbitDot 1.3s linear infinite; transform-origin: 0 -71px; }
+        @keyframes orbitDot { to { transform: rotate(360deg); } }
+        .ld-subtitle { font-family: 'Orbitron', sans-serif; font-size: 10px; font-weight: 900; color: rgba(208,0,255,0.65); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 4px; }
+        .ld-sub { font-size: 9px; color: var(--text-dim); letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
+        .ld-pct { font-size: 10px; color: var(--accent); font-family: 'Orbitron', sans-serif; font-weight: 900; text-align: right; margin-bottom: 4px; }
+        .ld-progress { width: 100%; height: 2px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden; margin-bottom: 10px; }
+        .ld-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #4a0080, var(--accent), var(--accent2)); border-radius: 2px; transition: width 0.15s ease-out; box-shadow: 0 0 8px rgba(208,0,255,0.5); }
+        .ld-status { font-size: 10px; color: var(--text-dim); font-family: monospace; letter-spacing: 0.5px; margin-bottom: 20px; min-height: 16px; }
+        .ld-status::before { content: '▶ '; color: var(--accent); }
+        .ld-btn { display: none; padding: 11px 32px; background: linear-gradient(135deg, #4a148c, #311b92); border: 1px solid rgba(208,0,255,0.45); border-radius: 40px; color: #fff; font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.2s; box-shadow: 0 0 20px rgba(208,0,255,0.2); }
+        .ld-btn:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(208,0,255,0.4); }
+
+        /* === SHIMMER === */
+        .shimmer { background: linear-gradient(90deg, #130320 25%, #2a0845 50%, #130320 75%); background-size: 400% 100%; animation: shimmerAnim 1.5s infinite; }
+        @keyframes shimmerAnim { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+        /* === HEADER === */
+        .header {
+            position: sticky; top: 0; width: 100%;
+            z-index: 100;
+            background: rgba(11, 2, 19, 0.96);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 16px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .header .logo { font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 900; color: var(--accent); text-shadow: 0 0 15px rgba(208,0,255,0.4); letter-spacing: 1px; cursor: pointer; text-decoration: none; }
+        .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; border-radius: 8px; background: rgba(208,0,255,0.06); border: 1px solid rgba(208,0,255,0.15); transition: 0.2s; }
+        .hamburger:hover { background: rgba(208,0,255,0.12); border-color: rgba(208,0,255,0.3); }
+        .hamburger .bar { width: 20px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+        .hamburger .bar:nth-child(2) { width: 15px; }
+        .hamburger .bar:nth-child(3) { width: 10px; }
+        .back-btn { display: flex; align-items: center; gap: 6px; padding: 7px 13px; background: rgba(74,20,140,0.25); border: 1px solid rgba(208,0,255,0.2); border-radius: 20px; color: var(--text); text-decoration: none; font-size: 11px; font-weight: 700; transition: 0.2s; cursor: pointer; }
+        .back-btn:hover { background: rgba(74,20,140,0.45); border-color: rgba(208,0,255,0.4); color: #fff; }
+        .back-btn svg { width: 12px; height: 12px; }
+
+        /* === DRAWER === */
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); z-index: 900; opacity: 0; visibility: hidden; transition: 0.3s; }
+        .overlay.show { opacity: 1; visibility: visible; }
+        .drawer {
+            position: fixed; top: 0; right: 0; width: 265px; height: 100vh;
+            background: #0d0220;
+            border-left: 1px solid rgba(208,0,255,0.25);
+            z-index: 1001;
+            padding: 20px 14px;
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            display: flex; flex-direction: column;
+            overflow-y: auto;
+        }
+        .drawer.open { transform: translateX(0); }
+        .drawer-title { font-family: 'Orbitron', sans-serif; font-size: 11px; color: var(--accent); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); letter-spacing: 1px; }
+        .drawer .links { display: flex; flex-direction: column; gap: 7px; flex: 1; }
+        .drawer .links a { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: rgba(74, 20, 140, 0.18); border: 1px solid rgba(208,0,255,0.1); color: #fff; text-decoration: none; font-size: 12px; font-weight: 700; transition: 0.2s; }
+        .drawer .links a:hover { background: rgba(74,20,140,0.42); border-color: rgba(208,0,255,0.35); }
+        .drawer .links a .ic { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .drawer .links a .ic svg { width: 18px; height: 18px; }
+        .drawer-foot { font-size: 10px; color: var(--text-dim); text-align: center; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05); }
+
+        /* === TICKER === */
+        .ticker { background: rgba(208,0,255,0.04); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 9px 0; }
+        .ticker-inner { display: flex; animation: tickerScroll 18s linear infinite; white-space: nowrap; }
+        .ticker-inner span { font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 700; color: rgba(209,179,232,0.8); letter-spacing: 2px; padding: 0 20px; }
+        @keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* === DIVIDER === */
+        .divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(208,0,255,0.25), transparent); margin: 26px 0; width: 100%; }
+
+        /* === MAIN / PAGES === */
+        .main { flex: 1; max-width: 560px; margin: 0 auto; padding: 20px 18px 80px; width: 100%; position: relative; }
+        .page { display: none; }
+        .page.active { display: block; }
+        .fade { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade.in { opacity: 1; transform: translateY(0); }
+
+        /* === GLOBAL MUSIC PLAYER === */
+        .player { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; display: flex; align-items: center; gap: 14px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: border-color 0.2s; margin-bottom: 20px; }
+        .player:hover { border-color: rgba(208,0,255,0.4); }
+        .player-disc { width: 46px; height: 46px; flex-shrink: 0; border-radius: 50%; background: conic-gradient(from 0deg, #1a0330, #4a148c, #1a0330, #6a1b9a, #1a0330); border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; animation: discSpin 4s linear infinite; animation-play-state: paused; box-shadow: 0 0 12px rgba(208,0,255,0.2); }
+        .player-disc.playing { animation-play-state: running; }
+        .player-disc::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        @keyframes discSpin { to { transform: rotate(360deg); } }
+        .player-info { flex: 1; min-width: 0; }
+        .player-title { font-size: 13px; font-weight: 900; color: #fff; margin-bottom: 3px; letter-spacing: 0.3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .player-dur { font-size: 11px; color: var(--accent2); font-weight: 600; }
+        .player-btn { width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; background: rgba(208,0,255,0.12); border: 1px solid rgba(208,0,255,0.25); display: flex; align-items: center; justify-content: center; color: var(--accent); }
+        .player-btn svg { width: 14px; height: 14px; }
+        .player-bars { display: flex; align-items: flex-end; gap: 3px; height: 24px; flex-shrink: 0; }
+        .player-bars span { width: 3px; height: 3px; background: var(--accent2); border-radius: 2px; transition: height 0.1s ease; }
+
+        /* === NO REPLIT BADGE === */
+        .__replit-badge, [data-replit-badge], .replit-badge, #replit-badge { display: none !important; }
+
+        /* === INTRO CARD === */
+        .intro-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; font-size: 13px; line-height: 1.8; color: var(--text); margin-bottom: 16px; }
+        .intro-card strong { color: var(--accent2); font-weight: 900; }
+
+        /* === ACTION BUTTONS === */
+        .action-btns { display: flex; gap: 8px; margin-bottom: 22px; }
+        .action-btns .abtn {
+            flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;
+            padding: 13px 8px; border-radius: 12px;
+            background: linear-gradient(155deg, #3d1278, #1e0c4a);
+            border: 1px solid rgba(208,0,255,0.25); color: #fff;
+            text-decoration: none; font-size: 10px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            transition: 0.25s; box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            cursor: pointer;
+        }
+        .action-btns .abtn .btn-icon { display: flex; align-items: center; justify-content: center; }
+        .action-btns .abtn .btn-icon svg { width: 22px; height: 22px; }
+        .action-btns .abtn:hover { background: linear-gradient(155deg, #4a148c, #311b92); border-color: rgba(208,0,255,0.5); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
+        .action-btns .abtn:active { transform: translateY(0); }
+
+        /* === SECTION TITLE === */
+        .sec-title { font-size: 11px; font-weight: 900; color: var(--accent2); text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .sec-title::before { content: ''; display: block; width: 3px; height: 14px; background: var(--accent); border-radius: 2px; }
+
+        /* === BANNER & VIDEO === */
+        .banner { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 14px; border: 1px solid var(--border); box-shadow: 0 8px 30px rgba(0,0,0,0.7); display: block; }
+        .vidbox { width: 100%; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 30px rgba(0,0,0,0.7); background: #000; }
+        .vidbox video { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+
+        /* === TESTIMONIALS === */
+        .testi-wrap { overflow: hidden; cursor: grab; user-select: none; }
+        .testi-wrap:active { cursor: grabbing; }
+        .testi-list { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; width: max-content; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .testi-list::-webkit-scrollbar { display: none; }
+        .testi-item { width: 250px; flex-shrink: 0; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+        .testi-head { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(208,0,255,0.1); }
+        .testi-head img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(208,0,255,0.5); }
+        .testi-name { font-size: 13px; font-weight: 900; color: #fff; }
+        .testi-stars { color: #fbbf24; font-size: 11px; margin-top: 2px; }
+        .testi-quote { font-size: 12px; color: var(--text); line-height: 1.6; font-style: italic; }
+
+        /* === PORTFOLIO === */
+        .portfolio-item { margin-bottom: 18px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        .portfolio-img { width: 100%; aspect-ratio: 16/9; background: var(--bg); border-bottom: 1px solid var(--border); overflow: hidden; }
+        .portfolio-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .portfolio-desc { padding: 16px 18px; font-size: 13px; line-height: 1.7; color: var(--text); }
+        .portfolio-desc strong { color: var(--accent2); font-weight: 900; text-transform: uppercase; }
+
+        /* === CHARACTER SCROLL === */
+        .char-list { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .char-list::-webkit-scrollbar { display: none; }
+        .char-item { min-width: 140px; flex-shrink: 0; background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+        .char-item img { width: 100%; height: 175px; object-fit: cover; border-bottom: 1px solid var(--border); display: block; }
+        .char-info { padding: 10px; text-align: center; }
+        .char-name { font-size: 12px; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 3px; }
+        .char-role { font-size: 10px; color: var(--accent2); font-weight: 600; }
+
+        /* === MONITOR === */
+        .monitor { background: rgba(8,1,14,0.9); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; box-shadow: 0 4px 20px rgba(0,0,0,0.6); }
+        .monitor-head { font-family: 'Orbitron', sans-serif; font-size: 10px; font-weight: 900; color: var(--accent); display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px; letter-spacing: 1.5px; }
+        .monitor-status { color: #f87171; animation: blinkAnim 1s step-end infinite; }
+        @keyframes blinkAnim { 50% { opacity: 0.2; } }
+        .monitor-row { display: flex; justify-content: space-between; font-size: 11px; color: #a78bfa; padding: 3px 0; font-weight: 700; }
+        .monitor-row .val { color: var(--accent2); font-weight: 900; }
+        .monitor-bar { width: 100%; height: 5px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; margin: 5px 0 10px; }
+        .monitor-fill { height: 100%; background: linear-gradient(90deg, #7b1fa2, var(--accent)); border-radius: 4px; transition: width 0.4s ease; }
+        .monitor-footer { display: flex; justify-content: space-between; font-size: 9px; color: rgba(208,0,255,0.4); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); font-weight: 700; letter-spacing: 1px; }
+
+        /* === MAL CARD === */
+        .mal-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; margin-bottom: 8px; }
+        .mal-top { display: flex; gap: 14px; margin-bottom: 12px; align-items: flex-start; }
+        .mal-cover { width: 76px; height: 108px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); flex-shrink: 0; }
+        .mal-info { flex: 1; min-width: 0; }
+        .mal-title { font-size: 14px; font-weight: 900; color: #fff; line-height: 1.3; margin-bottom: 2px; }
+        .mal-jp { font-size: 11px; color: var(--accent2); margin-bottom: 7px; font-style: italic; }
+        .mal-score-row { display: flex; align-items: baseline; gap: 4px; margin-bottom: 5px; }
+        .mal-star { color: #fbbf24; font-size: 18px; line-height: 1; }
+        .mal-score-val { font-family: 'Orbitron', sans-serif; font-size: 22px; font-weight: 900; color: #fbbf24; }
+        .mal-score-sub { font-size: 11px; color: var(--text-dim); }
+        .mal-rank-row { font-size: 11px; color: var(--text-dim); }
+        .mal-rank-row strong { color: var(--accent2); }
+        .mal-genres { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+        .mal-genre { font-size: 10px; padding: 3px 10px; background: rgba(208,0,255,0.1); border: 1px solid rgba(208,0,255,0.2); border-radius: 20px; color: var(--accent2); font-weight: 700; }
+        .mal-synopsis { font-size: 12px; color: var(--text); line-height: 1.7; margin-bottom: 14px; font-style: italic; border-left: 2px solid var(--accent); padding-left: 12px; }
+        .mal-seasons-label { font-size: 9px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; }
+        .mal-seasons-hint { font-size: 9px; color: rgba(209,179,232,0.35); letter-spacing: 0; }
+        .mal-seasons-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin-bottom: 14px; }
+        .mal-seasons-scroll::-webkit-scrollbar { display: none; }
+        .mal-season-card { min-width: 155px; flex-shrink: 0; background: rgba(208,0,255,0.04); border: 1px solid rgba(208,0,255,0.12); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+        .mal-season-card img { width: 100%; height: 95px; object-fit: cover; display: block; border-bottom: 1px solid rgba(208,0,255,0.1); }
+        .mal-season-body { padding: 10px; flex: 1; display: flex; flex-direction: column; }
+        .mal-s-badge { display: inline-block; font-family: 'Orbitron', sans-serif; font-size: 7px; font-weight: 900; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; border-radius: 5px; padding: 2px 6px; letter-spacing: 1px; margin-bottom: 6px; }
+        .mal-s-title { font-size: 11px; font-weight: 900; color: #fff; margin-bottom: 5px; line-height: 1.3; }
+        .mal-s-status { display: inline-block; font-size: 8px; font-weight: 700; padding: 2px 7px; border-radius: 10px; margin-bottom: 5px; }
+        .mal-s-status.done { background: rgba(34,197,94,0.1); color: #4ade80; border: 1px solid rgba(34,197,94,0.2); }
+        .mal-s-status.airing { background: rgba(250,204,21,0.1); color: #facc15; border: 1px solid rgba(250,204,21,0.2); }
+        .mal-s-status.upcoming { background: rgba(208,0,255,0.08); color: var(--accent2); border: 1px solid rgba(208,0,255,0.15); }
+        .mal-s-score { font-size: 12px; color: #fbbf24; font-weight: 700; margin-bottom: 4px; }
+        .mal-s-row { font-size: 10px; color: var(--text-dim); margin-bottom: 2px; }
+        .mal-s-row strong { color: #c4b5d8; }
+        .mal-s-link { display: block; font-size: 9px; font-weight: 700; color: var(--accent); text-decoration: none; margin-top: auto; padding-top: 8px; border-top: 1px solid rgba(208,0,255,0.1); }
+        .mal-link { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 700; color: var(--accent); text-decoration: none; padding: 8px 16px; border: 1px solid rgba(208,0,255,0.3); border-radius: 20px; transition: 0.2s; }
+        .mal-link svg { width: 13px; height: 13px; flex-shrink: 0; }
+        .mal-link:hover { background: rgba(208,0,255,0.1); border-color: var(--accent); }
+
+        /* === BIO === */
+        .bio { background: rgba(20,5,35,0.7); border-left: 3px solid var(--accent); padding: 16px 20px; font-size: 13px; line-height: 1.85; color: var(--text); border-radius: 0 10px 10px 0; }
+        .bio .hl { color: var(--accent2); font-weight: 900; }
+
+        /* === FOOTER === */
+        .footer { text-align: center; font-size: 11px; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 24px; margin-top: 8px; line-height: 1.9; }
+        .footer b { font-family: 'Orbitron', sans-serif; color: #fff; letter-spacing: 1px; font-weight: 900; font-size: 12px; }
+
+        /* ============================================================ */
+        /* === PRODUK PAGE === */
+        /* ============================================================ */
+        .produk-main { max-width: 580px; position: relative; }
+        .page-title { text-align: center; margin-bottom: 20px; }
+        .page-title h1 { font-family: 'Orbitron', sans-serif; font-size: 15px; font-weight: 900; color: #fff; letter-spacing: 2px; margin-bottom: 4px; }
+        .page-title p { font-size: 11px; color: var(--text-dim); }
+        .search-wrap { position: relative; margin-bottom: 18px; }
+        .search-wrap svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; color: var(--text-dim); pointer-events: none; }
+        #searchInput { width: 100%; padding: 10px 14px 10px 36px; background: rgba(20,5,35,0.7); border: 1px solid var(--border); border-radius: 30px; color: var(--text); font-size: 12px; font-family: 'Inter', sans-serif; outline: none; transition: 0.2s; }
+        #searchInput::placeholder { color: var(--text-dim); }
+        #searchInput:focus { border-color: rgba(208,0,255,0.5); background: rgba(30,8,55,0.8); }
+        .cat-accordion { margin-bottom: 12px; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: rgba(10,1,22,0.7); }
+        .cat-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px; cursor: pointer; background: rgba(208,0,255,0.05); border-bottom: 1px solid transparent; transition: background 0.2s, border-color 0.2s; user-select: none; }
+        .cat-header:hover { background: rgba(208,0,255,0.1); }
+        .cat-header.open { background: rgba(208,0,255,0.08); border-bottom-color: var(--border); }
+        .cat-icon { width: 34px; height: 34px; border-radius: 10px; background: rgba(208,0,255,0.1); border: 1px solid rgba(208,0,255,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .cat-icon svg { width: 18px; height: 18px; color: var(--accent); }
+        .cat-meta { flex: 1; min-width: 0; }
+        .cat-name { font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 900; color: #fff; letter-spacing: 1px; margin-bottom: 2px; }
+        .cat-desc { font-size: 11px; color: var(--text-dim); }
+        .cat-badges { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+        .cat-count { font-size: 10px; font-weight: 900; background: rgba(208,0,255,0.12); border: 1px solid rgba(208,0,255,0.2); border-radius: 12px; padding: 2px 8px; color: var(--accent); }
+        .cat-chevron { width: 18px; height: 18px; color: var(--text-dim); transition: transform 0.28s; flex-shrink: 0; }
+        .cat-header.open .cat-chevron { transform: rotate(180deg); }
+        .cat-body { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+        .cat-body.open { max-height: 5000px; }
+        .tbl-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        table { width: 100%; border-collapse: collapse; min-width: 280px; }
+        thead { background: rgba(208,0,255,0.06); }
+        th { padding: 9px 8px; text-align: left; font-family: 'Orbitron', sans-serif; font-size: 9px; font-weight: 900; color: rgba(208,0,255,0.8); letter-spacing: 1px; border-bottom: 1px solid rgba(208,0,255,0.12); }
+        td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.04); color: #ddd; vertical-align: middle; font-size: 12px; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: rgba(208,0,255,0.04); }
+        tr.hidden-row { display: none; }
+        .td-name { color: #e2d5f5; font-weight: 600; word-break: break-word; max-width: 140px; }
+        .td-price { text-align: right; color: #c084fc; font-weight: 900; white-space: nowrap; font-size: 12px; min-width: 48px; }
+        .td-order { text-align: center; white-space: nowrap; }
+        .btn-order { display: inline-flex; align-items: center; gap: 5px; padding: 6px 13px; background: linear-gradient(135deg, #4a148c, #311b92); border: 1px solid rgba(208,0,255,0.3); border-radius: 20px; color: #fff; text-decoration: none; font-size: 10px; font-weight: 900; letter-spacing: 0.5px; transition: 0.2s; white-space: nowrap; }
+        .btn-order svg { width: 12px; height: 12px; flex-shrink: 0; }
+        .btn-order:hover { background: linear-gradient(135deg, #6a1b9a, #4a148c); border-color: var(--accent); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(74,20,140,0.5); }
+        .btn-order:active { transform: translateY(0); }
+        #noResults { display: none; text-align: center; padding: 30px 20px; font-size: 13px; color: var(--text-dim); }
+
+        /* === "KENAPA PILIH KAMI" SECTION === */
+        .why-us { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px; }
+        .why-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 12px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.2s, transform 0.2s; }
+        .why-card:hover { border-color: rgba(208,0,255,0.4); transform: translateY(-2px); }
+        .why-icon { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, rgba(208,0,255,0.15), rgba(106,27,154,0.2)); border: 1px solid rgba(208,0,255,0.2); display: flex; align-items: center; justify-content: center; }
+        .why-icon svg { width: 18px; height: 18px; color: var(--accent); }
+        .why-title { font-size: 12px; font-weight: 900; color: #fff; line-height: 1.3; }
+        .why-desc { font-size: 11px; color: var(--text-dim); line-height: 1.5; }
+
+        /* === NAV BUTTONS (produk/pay) === */
+        .nav-btns { display: flex; flex-direction: column; gap: 10px; width: 100%; margin-bottom: 20px; margin-top: 16px; background: transparent !important; }
+        .nav-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 20px; border-radius: 12px; font-size: 12px; font-weight: 900; text-transform: uppercase; text-decoration: none; transition: 0.25s; letter-spacing: 0.5px; cursor: pointer; border: none; font-family: 'Inter', sans-serif; }
+        .nav-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+        .nav-btn.primary { background: linear-gradient(135deg, #4a148c, #311b92); border: 1px solid rgba(208,0,255,0.4); color: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
+        .nav-btn.secondary { background: rgba(20,5,35,0.7); border: 1px solid rgba(208,0,255,0.2); color: var(--text); }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.5); }
+        .nav-btn:active { transform: translateY(0); }
+
+        /* ============================================================ */
+        /* === PAY PAGE === */
+        /* ============================================================ */
+        .pay-main { max-width: 500px; position: relative; }
+        .pay-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 24px 20px; width: 100%; box-shadow: 0 12px 50px rgba(0,0,0,0.7); margin-bottom: 18px; }
+        .qris-section { margin-bottom: 6px; display: flex; flex-direction: column; align-items: center; width: 100%; }
+        .qris-header { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 18px; }
+        .qris-header-badge { font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 900; color: #fff; letter-spacing: 1px; }
+        .qris-header-tag { font-size: 9px; font-weight: 900; background: linear-gradient(135deg, #d000ff, #e040fb); color: #fff; border-radius: 10px; padding: 2px 8px; letter-spacing: 1px; text-transform: uppercase; }
+        .qris-outer { display: block; width: fit-content; max-width: 100%; background: linear-gradient(135deg, rgba(208,0,255,0.15), rgba(106,27,154,0.15)); border: 2px solid rgba(208,0,255,0.35); border-radius: 20px; padding: 12px; box-shadow: 0 0 40px rgba(208,0,255,0.15), 0 12px 40px rgba(0,0,0,0.5); margin-bottom: 14px; box-sizing: border-box; }
+        .qris-inner { background: #fff; border-radius: 12px; padding: 10px; display: flex; flex-direction: column; align-items: center; width: 100%; }
+        .qris-inner img { display: block; width: min(220px, calc(100vw - 130px)); height: min(220px, calc(100vw - 130px)); object-fit: contain; border-radius: 6px; }
+        .qris-inner .qris-label { margin-top: 10px; font-size: 11px; font-weight: 900; color: #1a0330; letter-spacing: 1px; text-transform: uppercase; }
+        .qris-inner .qris-name { font-size: 10px; color: #444; margin-top: 2px; }
+        .qris-hint { font-size: 11px; color: var(--text-dim); font-weight: 600; margin-bottom: 12px; text-align: center; }
+        .qris-apps { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+        .qris-app-tag { font-size: 9px; font-weight: 700; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 3px 10px; color: rgba(209,179,232,0.65); letter-spacing: 0.5px; }
+        .transfer-section { text-align: center; }
+        .transfer-header { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 18px; }
+        .transfer-header-badge { font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 900; color: #fff; letter-spacing: 1px; }
+        .transfer-header-tag { font-size: 9px; font-weight: 900; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: #fff; border-radius: 10px; padding: 2px 8px; letter-spacing: 1px; text-transform: uppercase; }
+        .transfer-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 16px; margin-bottom: 14px; }
+        .transfer-app-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; }
+        .transfer-app-icon { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #0c7fdb, #1d4ed8); display: flex; align-items: center; justify-content: center; }
+        .transfer-app-icon svg { width: 20px; height: 20px; color: #fff; }
+        .transfer-app-name { font-family: 'Orbitron', sans-serif; font-size: 16px; font-weight: 900; color: #60a5fa; letter-spacing: 1px; }
+        .transfer-number { font-size: clamp(14px, 5.5vw, 28px); font-weight: 900; color: var(--accent2); letter-spacing: clamp(1px, 1.5vw, 4px); margin-bottom: 5px; font-family: 'Orbitron', sans-serif; word-break: break-all; }
+        .transfer-name { font-size: 12px; color: var(--text); margin-bottom: 0; font-weight: 600; }
+        .btn-copy { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: linear-gradient(135deg, #4a148c, #311b92); border: 1px solid rgba(208,0,255,0.4); border-radius: 40px; color: #fff; font-size: 12px; font-weight: 900; letter-spacing: 1px; cursor: pointer; transition: 0.25s; box-shadow: 0 4px 16px rgba(0,0,0,0.4); margin-top: 14px; }
+        .btn-copy svg { width: 14px; height: 14px; }
+        .btn-copy:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(74,20,140,0.6); border-color: var(--accent); }
+        .btn-copy:active { transform: translateY(0); }
+        .btn-copy.copied { background: linear-gradient(135deg, #1b5e20, #004d40); border-color: #22c55e; }
+        .btn-copy.error { background: linear-gradient(135deg, #7f1d1d, #450a0a); border-color: #f87171; }
+        #copyToast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(80px); background: rgba(20,5,35,0.95); border: 1px solid rgba(34,197,94,0.5); border-radius: 30px; padding: 10px 22px; font-size: 12px; font-weight: 700; color: #86efac; z-index: 9000; transition: transform 0.3s cubic-bezier(0.2,0.8,0.2,1), opacity 0.3s; opacity: 0; pointer-events: none; }
+        #copyToast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        .steps { margin-top: 4px; }
+        .steps-title { font-size: 10px; font-weight: 900; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+        .step { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 11px; }
+        .step-num { width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; background: rgba(208,0,255,0.12); border: 1px solid rgba(208,0,255,0.3); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; color: var(--accent); }
+        .step-text { font-size: 12px; color: var(--text); line-height: 1.6; padding-top: 4px; }
+        .step-text strong { color: #fff; font-weight: 700; }
+
+        @media (max-width: 420px) {
+            .action-btns .abtn { font-size: 9px; padding: 11px 6px; }
+            .action-btns .abtn .btn-icon svg { width: 19px; height: 19px; }
+            .why-us { grid-template-columns: 1fr; }
+            td { font-size: 11px; padding: 8px 7px; }
+            th { font-size: 8px; padding: 8px 7px; }
+            .btn-order { font-size: 9px; padding: 5px 9px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- AUDIO -->
+    <audio id="clickSnd" preload="none"><source src="https://cdn.nekohime.site/file/0kiyfumx.mp3" type="audio/mpeg" /></audio>
+    <audio id="bgMusic" preload="none" loop><source src="https://c.termai.cc/a110/LXxj.mp3" type="audio/mpeg" /></audio>
+
+    <!-- TOAST -->
+    <div id="copyToast">✅ Nomor berhasil disalin!</div>
+
+    <!-- LOADING SCREEN — REVIZA ROTATING LOGO -->
+    <div id="loading">
+        <div class="ld-box">
+            <div class="ld-orbit-wrap">
+                <div class="ld-ring1"></div>
+                <div class="ld-ring2"></div>
+                <div class="ld-ring3"></div>
+                <div class="ld-center">REVIZA</div>
+                <div class="ld-dot-orb"></div>
+            </div>
+            <div class="ld-subtitle">REVIZA</div>
+            <div class="ld-sub">Zayuyo Site · Loading</div>
+            <div class="ld-pct" id="ldPct">0%</div>
+            <div class="ld-progress"><div class="ld-bar" id="ldBar"></div></div>
+            <div class="ld-status" id="ldStatus">Menginisialisasi sistem...</div>
+            <button class="ld-btn" id="ldBtn" onclick="startApp()">Masuk &rarr;</button>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="siteHeader">
+        <!-- Home header -->
+        <a class="logo" id="headerLogo" onclick="navigateTo('/')" href="/" style="text-decoration:none;">✦ REVIZA</a>
+        <!-- Sub-page back button (hidden on home) -->
+        <button class="back-btn" id="backBtn" style="display:none;" onclick="navigateTo('/')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+            Beranda
+        </button>
+        <div class="hamburger" id="hamburger" aria-label="Menu">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+    </header>
+
+    <!-- OVERLAY & DRAWER SOSMED -->
+    <div class="overlay" id="overlay"></div>
+    <div class="drawer" id="drawer">
+        <div class="drawer-title">≡ Sosial Media</div>
+        <div class="links">
+            <a href="https://www.tiktok.com/@reviza4ever" target="_blank">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.19 8.19 0 004.79 1.54V6.79a4.85 4.85 0 01-1.02-.1z"/></svg></span>TikTok
+            </a>
+            <a href="https://instagram.com/Always_revizaa" target="_blank">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></span>Instagram
+            </a>
+            <a href="https://www.youtube.com/@reviza4ever" target="_blank">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span>YouTube
+            </a>
+            <a href="https://linkfly.to/Zaayuyo" target="_blank">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>Linkfly
+            </a>
+            <a href="https://saweria.co/REVIZAHOSHI" target="_blank">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg></span>Saweria
+            </a>
+            <a href="https://whatsapp.com/channel/0029Vb7xLulDJ6GrrJGtU51t" target="_blank">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>Preset AM
+            </a>
+            <a href="https://t.me/zayuyoo" target="_blank">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span>Telegram
+            </a>
+            <a href="https://whatsapp.com/channel/0029VbBc5ak3AzNL2pXnJJ1u" target="_blank">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>Info Channel
+            </a>
+            <a href="https://chat.whatsapp.com/BW0zgEgEPUOI5Arb80RWG0" target="_blank">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>Grup WA
+            </a>
+            <a href="https://discord.gg/7Nn352cN9b" target="_blank">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.132 18.11a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg></span>Discord
+            </a>
+        </div>
+        <div class="drawer-foot">Reviza • all rigreserved ht &middot; 2024-2026</div>
+    </div>
+
+    <!-- TICKER -->
+    <div class="ticker" id="tickerBar">
+        <div class="ticker-inner">
+            <span>✦ ARIGATOU SUDAH MAMPIR &middot; REVIZA &middot; ZAYUYO SITE ✦</span>
+            <span>✦ ARIGATOU SUDAH MAMPIR &middot; REVIZA &middot; ZAYUYO SITE ✦</span>
+            <span>✦ ARIGATOU SUDAH MAMPIR &middot; REVIZA &middot; ZAYUYO SITE ✦</span>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: HOME -->
+    <!-- ============================================================ -->
+    <main class="main" id="page-home">
+        <div class="page active" id="pageHome">
+            <div class="intro-card fade">
+                Selamat datang di pusat informasi <strong>REVIZA</strong>. Menyediakan <strong>Aplikasi Premium, Nokos, Kebsos, Bot WA, Panel,</strong> dan preset <strong>Alight Motion</strong>.
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="action-btns fade">
+                <div class="abtn" onclick="navigateTo('/produk')">
+                    <span class="btn-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </span>
+                    Produk
+                </div>
+                <a class="abtn" href="https://wa.me/message/H7BHGTEJI32DB1" target="_blank">
+                    <span class="btn-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+                    WhatsApp
+                </a>
+                <div class="abtn" onclick="navigateTo('/pay')">
+                    <span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="3" ry="3"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="5" y1="15" x2="9" y2="15"/><line x1="13" y1="15" x2="17" y2="15"/></svg></span>
+                    Bayar
+                </div>
+            </div>
+
+            <!-- MUSIC PLAYER (single, global) -->
+            <div class="player fade" id="musicPlayer">
+                <div class="player-disc" id="disc"></div>
+                <div class="player-info">
+                    <div class="player-title">YOASOBI — IDOL</div>
+                    <div class="player-dur" id="songDuration">▷ Tekan untuk putar</div>
+                </div>
+                <div class="player-bars" id="specBars"></div>
+                <div class="player-btn">
+                    <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                    <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                </div>
+            </div>
+
+            <hr class="divider fade" />
+
+            <img src="https://cdn.nekohime.site/file/d36blueb.jpg" alt="Banner REVIZA" class="banner fade shimmer" onload="this.classList.remove('shimmer')" loading="lazy" />
+
+            <hr class="divider fade" />
+
+            <div class="vidbox fade">
+                <video id="mainVideo" loop muted playsinline preload="metadata">
+                    <source src="https://u.pone.rs/vuxzkknn.mp4" type="video/mp4" />
+                </video>
+            </div>
+
+            <hr class="divider fade" />
+
+            <!-- TESTIMONIAL -->
+            <div class="sec-title fade">Testimoni Pelanggan</div>
+            <div class="testi-wrap fade">
+                <div class="testi-list" id="testiList"></div>
+            </div>
+
+            <hr class="divider fade" />
+
+            <!-- PORTFOLIO -->
+            <div class="sec-title fade">Portfolio</div>
+            <div class="fade">
+                <div class="portfolio-item">
+                    <div class="portfolio-img"><img src="https://cdn.nekohime.site/file/rd82ed5t.jpg" alt="Ai Hoshino" class="shimmer" onload="this.classList.remove('shimmer')" loading="lazy" /></div>
+                    <div class="portfolio-desc"><strong>Ai Hoshino</strong> — Istri Reviza tercinta.</div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img"><img src="https://cdn.nekohime.site/file/ewl5i1yr.jpg" alt="Oshi no Ko" class="shimmer" onload="this.classList.remove('shimmer')" loading="lazy" /></div>
+                    <div class="portfolio-desc"><strong>Oshi no Ko</strong> — Membuka sisi gelap industri hiburan.</div>
+                </div>
+            </div>
+
+            <hr class="divider fade" />
+
+            <!-- KARAKTER OSHI NO KO -->
+            <div class="sec-title fade">Karakter Oshi no Ko <small style="font-size:9px;color:var(--text-dim);font-family:Inter,sans-serif;font-weight:600;">→ geser kanan</small></div>
+            <div class="char-list fade">
+                <div class="char-item"><img src="https://cdn.nekohime.site/file/ekx9x2x4.jpg" alt="Ai Hoshino" class="shimmer" onload="this.classList.remove('shimmer')" loading="lazy"><div class="char-info"><div class="char-name">Ai Hoshino</div><div class="char-role">Center &amp; Lead Idol</div></div></div>
+                <div class="char-item"><img src="https://cdn.nekohime.site/file/63qyb3gf.jpg" alt="Aqua Hoshino" class="shimmer" onload="this.classList.remove('shimmer')" loading="lazy"><div class="char-info"><div class="char-name">Aqua Hoshino</div><div class="char-role">Main Character</div></div></div>
+                <div class="char-item"><img src="https://cdn.nekohime.site/file/zbgs919t.jpg" alt="Ruby Hoshino" class="shimmer" onload="this.classList.remove('shimmer')" loading="lazy"><div class="char-info"><div class="char-name">Ruby Hoshino</div><div class="char-role">Idol &amp; Actress</div></div></div>
+                <div class="char-item"><img src="https://cdn.nekohime.site/file/ix84bksg.jpg" alt="Kana Arima" class="shimmer" onload="this.classList.remove('shimmer')" loading="lazy"><div class="char-info"><div class="char-name">Kana Arima</div><div class="char-role">Child Actor</div></div></div>
+                <div class="char-item"><img src="https://cdn.nekohime.site/file/sq5m00c4.jpg" alt="Akane Kurokawa" class="shimmer" onload="this.classList.remove('shimmer')" loading="lazy"><div class="char-info"><div class="char-name">Akane Kurokawa</div><div class="char-role">Theater Actress</div></div></div>
+                <div class="char-item"><img src="https://cdn.nekohime.site/file/uaf5ax5y.jpg" alt="Mem-cho" class="shimmer" onload="this.classList.remove('shimmer')" loading="lazy"><div class="char-info"><div class="char-name">Mem-cho</div><div class="char-role">YouTuber / Idol</div></div></div>
+            </div>
+
+            <hr class="divider fade" />
+
+            <!-- OSHI NO KO MAL -->
+            <div class="sec-title fade">📊 Oshi no Ko · MyAnimeList</div>
+            <div class="mal-card fade">
+                <div class="mal-top">
+                    <img src="https://cdn.myanimelist.net/images/anime/1812/134736l.jpg" alt="Oshi no Ko" class="mal-cover shimmer" onload="this.classList.remove('shimmer')" loading="lazy">
+                    <div class="mal-info">
+                        <div class="mal-title">【Oshi no Ko】</div>
+                        <div class="mal-jp">推しの子</div>
+                        <div class="mal-score-row"><span class="mal-star">★</span><span class="mal-score-val">8.55</span><span class="mal-score-sub">/ 10</span></div>
+                        <div class="mal-rank-row">Ranked <strong>#146</strong> · Popularity <strong>#12</strong></div>
+                    </div>
+                </div>
+                <div class="mal-genres"><span class="mal-genre">Drama</span><span class="mal-genre">Supernatural</span><span class="mal-genre">Suspense</span><span class="mal-genre">Showbiz</span></div>
+                <div class="mal-synopsis">Dokter penggemar idol lahir kembali sebagai anak kandung sang idol — mengungkap sisi gelap industri hiburan Jepang dari dalam.</div>
+                <div class="mal-seasons-label">Daftar Season<span class="mal-seasons-hint">← geser →</span></div>
+                <div class="mal-seasons-scroll">
+                    <div class="mal-season-card"><img src="https://cdn.myanimelist.net/images/anime/1812/134736l.jpg" alt="S1" loading="lazy"><div class="mal-season-body"><div class="mal-s-badge">SEASON 1</div><div class="mal-s-title">Oshi no Ko</div><span class="mal-s-status done">✓ Selesai</span><div class="mal-s-score">★ 8.56</div><div class="mal-s-row">Episode: <strong>11</strong></div><div class="mal-s-row">Tayang: <strong>Apr 2023</strong></div><div class="mal-s-row">Studio: <strong>Doga Kobo</strong></div><a href="https://myanimelist.net/anime/53887" target="_blank" class="mal-s-link">Lihat di MAL →</a></div></div>
+                    <div class="mal-season-card"><img src="https://cdn.myanimelist.net/images/anime/1870/142430l.jpg" alt="S2" loading="lazy" onerror="this.src='https://cdn.myanimelist.net/images/anime/1812/134736l.jpg'"><div class="mal-season-body"><div class="mal-s-badge">SEASON 2</div><div class="mal-s-title">Oshi no Ko 2nd Season</div><span class="mal-s-status done">✓ Selesai</span><div class="mal-s-score">★ 8.32</div><div class="mal-s-row">Episode: <strong>13</strong></div><div class="mal-s-row">Tayang: <strong>Jul 2024</strong></div><div class="mal-s-row">Studio: <strong>Doga Kobo</strong></div><a href="https://myanimelist.net/anime/55701" target="_blank" class="mal-s-link">Lihat di MAL →</a></div></div>
+                    <div class="mal-season-card"><img src="https://cdn.myanimelist.net/images/anime/1812/134736l.jpg" alt="S3" loading="lazy"><div class="mal-season-body"><div class="mal-s-badge">SEASON 3</div><div class="mal-s-title">Oshi no Ko 3rd Season</div><span class="mal-s-status upcoming">◎ Akan Tayang</span><div class="mal-s-score" style="color:var(--text-dim)">Skor TBA</div><div class="mal-s-row">Episode: <strong>TBA</strong></div><div class="mal-s-row">Tayang: <strong>2025</strong></div><div class="mal-s-row">Studio: <strong>Doga Kobo</strong></div><a href="https://myanimelist.net/anime/57019" target="_blank" class="mal-s-link">Lihat di MAL →</a></div></div>
+                </div>
+                <a href="https://myanimelist.net/anime/53887" target="_blank" class="mal-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Halaman Utama MAL</a>
+            </div>
+
+            <hr class="divider fade" />
+
+            <!-- MUSHOKU TENSEI MAL (NEW) -->
+            <div class="sec-title fade">📊 Mushoku Tensei · MyAnimeList</div>
+            <div class="mal-card fade">
+                <div class="mal-top">
+                    <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx108465-1ANspF1EWyFx.jpg" alt="Mushoku Tensei" class="mal-cover shimmer" onload="this.classList.remove('shimmer')" onerror="this.classList.remove('shimmer');this.onerror=null" loading="lazy">
+                    <div class="mal-info">
+                        <div class="mal-title">Mushoku Tensei</div>
+                        <div class="mal-jp">無職転生 ～異世界行ったら本気だす～</div>
+                        <div class="mal-score-row"><span class="mal-star">★</span><span class="mal-score-val">8.42</span><span class="mal-score-sub">/ 10</span></div>
+                        <div class="mal-rank-row">Ranked <strong>#105</strong> · Popularity <strong>#93</strong></div>
+                    </div>
+                </div>
+                <div class="mal-genres"><span class="mal-genre">Action</span><span class="mal-genre">Adventure</span><span class="mal-genre">Drama</span><span class="mal-genre">Fantasy</span><span class="mal-genre">Isekai</span></div>
+                <div class="mal-synopsis">Seorang pria paruh baya yang gagal dalam hidup meninggal dan terlahir kembali di dunia lain sebagai Rudeus Greyrat — bertekad untuk hidup tanpa penyesalan kali ini, bersama keahlian sihir yang luar biasa dari lahir.</div>
+                <div class="mal-seasons-label">Daftar Season<span class="mal-seasons-hint">← geser →</span></div>
+                <div class="mal-seasons-scroll">
+                    <div class="mal-season-card"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx108465-1ANspF1EWyFx.jpg" alt="S1P1" loading="lazy" onerror="this.onerror=null;this.style.opacity='0.4'"><div class="mal-season-body"><div class="mal-s-badge">SEASON 1</div><div class="mal-s-title">Mushoku Tensei Part 1</div><span class="mal-s-status done">✓ Selesai</span><div class="mal-s-score">★ 8.34</div><div class="mal-s-row">Episode: <strong>11</strong></div><div class="mal-s-row">Tayang: <strong>Jan 2021</strong></div><div class="mal-s-row">Studio: <strong>Studio Bind</strong></div><a href="https://myanimelist.net/anime/39535" target="_blank" class="mal-s-link">Lihat di MAL →</a></div></div>
+                    <div class="mal-season-card"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx127720-ADJgIrUVMdU9.jpg" alt="S1P2" loading="lazy" onerror="this.src='https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx108465-1ANspF1EWyFx.jpg'"><div class="mal-season-body"><div class="mal-s-badge">SEASON 1 PT.2</div><div class="mal-s-title">Mushoku Tensei Part 2</div><span class="mal-s-status done">✓ Selesai</span><div class="mal-s-score">★ 8.57</div><div class="mal-s-row">Episode: <strong>12</strong></div><div class="mal-s-row">Tayang: <strong>Okt 2021</strong></div><div class="mal-s-row">Studio: <strong>Studio Bind</strong></div><a href="https://myanimelist.net/anime/45576" target="_blank" class="mal-s-link">Lihat di MAL →</a></div></div>
+                    <div class="mal-season-card"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx146065-IjirxRK26O03.png" alt="S2P1" loading="lazy" onerror="this.src='https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx108465-1ANspF1EWyFx.jpg'"><div class="mal-season-body"><div class="mal-s-badge">SEASON 2</div><div class="mal-s-title">Isekai Ittara Honki Dasu S2</div><span class="mal-s-status done">✓ Selesai</span><div class="mal-s-score">★ 8.66</div><div class="mal-s-row">Episode: <strong>12</strong></div><div class="mal-s-row">Tayang: <strong>Jul 2023</strong></div><div class="mal-s-row">Studio: <strong>Studio Bind</strong></div><a href="https://myanimelist.net/anime/51179" target="_blank" class="mal-s-link">Lihat di MAL →</a></div></div>
+                    <div class="mal-season-card"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx166873-xO0BRPkmwFll.png" alt="S2P2" loading="lazy" onerror="this.src='https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx108465-1ANspF1EWyFx.jpg'"><div class="mal-season-body"><div class="mal-s-badge">SEASON 2 PT.2</div><div class="mal-s-title">Isekai Ittara Honki Dasu S2 P2</div><span class="mal-s-status done">✓ Selesai</span><div class="mal-s-score">★ 8.79</div><div class="mal-s-row">Episode: <strong>12</strong></div><div class="mal-s-row">Tayang: <strong>Jan 2024</strong></div><div class="mal-s-row">Studio: <strong>Studio Bind</strong></div><a href="https://myanimelist.net/anime/55888" target="_blank" class="mal-s-link">Lihat di MAL →</a></div></div>
+                    <div class="mal-season-card"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx178789-hNXjKFzUq7mk.jpg" alt="S3" loading="lazy" onerror="this.onerror=null;this.style.opacity='0.3'"><div class="mal-season-body"><div class="mal-s-badge">SEASON 3</div><div class="mal-s-title">Mushoku Tensei Season 3</div><span class="mal-s-status airing">◉ Sedang Tayang</span><div class="mal-s-score" style="color:var(--text-dim)">Skor TBA</div><div class="mal-s-row">Episode: <strong>TBA</strong></div><div class="mal-s-row">Tayang: <strong>2025</strong></div><div class="mal-s-row">Studio: <strong>Studio Bind</strong></div><a href="https://myanimelist.net/anime/57031" target="_blank" class="mal-s-link">Lihat di MAL →</a></div></div>
+                </div>
+                <a href="https://myanimelist.net/anime/39535" target="_blank" class="mal-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Halaman Utama MAL</a>
+            </div>
+
+            <hr class="divider fade" />
+
+            <!-- SYSTEM MONITOR -->
+            <div class="monitor fade" id="monitor">
+                <div class="monitor-head"><span>SYS MONITOR</span><span class="monitor-status">● LIVE</span></div>
+                <div class="monitor-row"><span>CPU Usage</span><span class="val" id="cpuVal">—</span></div>
+                <div class="monitor-bar"><div class="monitor-fill" id="cpuFill" style="width:0%"></div></div>
+                <div class="monitor-row"><span>RAM Usage</span><span class="val" id="ramVal">—</span></div>
+                <div class="monitor-bar"><div class="monitor-fill" id="ramFill" style="width:0%"></div></div>
+                <div class="monitor-row"><span>Ping</span><span class="val" id="pingVal">—</span></div>
+                <div class="monitor-row"><span>Uptime</span><span class="val" id="uptimeVal">00:00:00</span></div>
+                <div class="monitor-footer"><span>revizayowa.biz.id</span><span id="monTime">--:--:--</span></div>
+            </div>
+
+            <hr class="divider fade" />
+
+            <!-- BIO -->
+            <div class="bio fade">
+                <span class="hl">// AUTHOR</span><br>
+                Dikembangkan oleh <span class="hl reviza-typed">REVIZA</span> menggunakan HTML, CSS &amp; JavaScript.<br>
+                Lahir di Aceh, <span class="hl">5 September 2007</span>. Spesialis Preset Alight Motion.<br>
+                Anime favorit: <em>Oshi no Ko</em> — waifu: <span class="hl">Ai Hoshino</span>.
+            </div>
+
+            <hr class="divider fade" />
+
+            <div class="footer fade">
+                &copy; <b>ZAAPRST</b> 2024–2026<br>
+                Creator Preset Alight Motion<br>
+                <span style="font-size:10px;margin-top:4px;display:block;color:rgba(209,179,232,0.35);">revizayowa.biz.id</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: PRODUK -->
+    <!-- ============================================================ -->
+    <main class="main produk-main" id="page-produk" style="display:none;">
+        <div class="page active" id="pageProduk">
+            <div class="page-title">
+                <h1>DAFTAR PRODUK</h1>
+                <p>Klik ORDER untuk langsung chat WhatsApp admin</p>
+            </div>
+
+            <!-- NAV BUTTONS — ATAS -->
+            <div class="nav-btns" style="margin-bottom:18px;">
+                <button class="nav-btn primary" onclick="navigateTo('/pay')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="3"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    Cara Pembayaran
+                </button>
+                <a href="https://wa.me/628978595858" class="nav-btn primary" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Chat WhatsApp Admin
+                </a>
+                <button class="nav-btn secondary" onclick="navigateTo('/')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Kembali ke Beranda
+                </button>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="search-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input id="searchInput" type="text" placeholder="Cari produk..." autocomplete="off" />
+            </div>
+
+            <div id="noResults"><div style="font-size:28px;margin-bottom:8px;">🔍</div>Tidak ada produk yang cocok.</div>
+
+            <!-- BOT & PANEL -->
+            <div class="cat-accordion" data-cat="bot">
+                <div class="cat-header open" onclick="toggleCat(this)">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg></div>
+                    <div class="cat-meta"><div class="cat-name">Bot &amp; Panel</div><div class="cat-desc">Sewa bot WhatsApp, panel streaming, &amp; jasher Telegram</div></div>
+                    <div class="cat-badges"><span class="cat-count">10</span><svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+                </div>
+                <div class="cat-body open">
+                    <div class="tbl-wrap"><table>
+                        <thead><tr><th>Produk</th><th style="text-align:right">Harga</th><th style="text-align:center">Order</th></tr></thead>
+                        <tbody>
+                            <tr><td class="td-name">Sewa Bot WA 1 Bulan</td><td class="td-price">Rp35K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+SEWABOT+1+BULAN+35K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Sewa Bot WA 1 Minggu</td><td class="td-price">Rp10K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+SEWABOT+1+MINGGU+10K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Sewa Bot WA 1 Hari</td><td class="td-price">Rp3K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+SEWABOT+1+HARI+3K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Panel Unlimited Legal</td><td class="td-price">Rp10K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+PANEL+UNLIMITED+LEGAL+10K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Panel Unlimited Illegal</td><td class="td-price">Rp2K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+PANEL+UNLIMITED+ILLEGAL+2K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Panel ADP Legal</td><td class="td-price">Rp25K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+PANEL+ADP+LEGAL+25K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Panel ADP Illegal</td><td class="td-price">Rp5K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+PANEL+ADP+ILLEGAL+5K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Panel RESS Legal</td><td class="td-price">Rp15K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+PANEL+RESS+LEGAL+15K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Panel RESS Illegal</td><td class="td-price">Rp3K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+PANEL+RESS+ILLEGAL+3K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Jasher Telegram</td><td class="td-price">Rp25K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+JASHER+TELE+25K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                        </tbody>
+                    </table></div>
+                </div>
+            </div>
+
+            <!-- ALIGHT MOTION -->
+            <div class="cat-accordion" data-cat="am">
+                <div class="cat-header" onclick="toggleCat(this)">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+                    <div class="cat-meta"><div class="cat-name">Alight Motion</div><div class="cat-desc">Akun premium AM, tutorial editing, &amp; paket bahan lengkap</div></div>
+                    <div class="cat-badges"><span class="cat-count">5</span><svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+                </div>
+                <div class="cat-body">
+                    <div class="tbl-wrap"><table>
+                        <thead><tr><th>Produk</th><th style="text-align:right">Harga</th><th style="text-align:center">Order</th></tr></thead>
+                        <tbody>
+                            <tr><td class="td-name">AM Premium Email Buyer</td><td class="td-price">Rp15K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+AM+PREM+EMAIL+BUYER+15K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">AM Premium Email Seller</td><td class="td-price">Rp10K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+AM+PREM+EMAIL+SELLER+10K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">AM Premium Nogar Sharing</td><td class="td-price">Rp5K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+AM+PREM+NOGAR+SHARING+5K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Tutorial Alight Motion</td><td class="td-price">Rp85K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+TUTOR+AM+85K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">All Bahan + Tutorial</td><td class="td-price">Rp100K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+ALL+BAHAN+%2B+TUTOR+100K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                        </tbody>
+                    </table></div>
+                </div>
+            </div>
+
+            <!-- STREAMING & APPS -->
+            <div class="cat-accordion" data-cat="streaming">
+                <div class="cat-header" onclick="toggleCat(this)">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+                    <div class="cat-meta"><div class="cat-name">Streaming &amp; Apps</div><div class="cat-desc">Netflix, Spotify, WeTV, CapCut, YouTube, Picsart &amp; lebih</div></div>
+                    <div class="cat-badges"><span class="cat-count">19</span><svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+                </div>
+                <div class="cat-body">
+                    <div class="tbl-wrap"><table>
+                        <thead><tr><th>Produk</th><th style="text-align:right">Harga</th><th style="text-align:center">Order</th></tr></thead>
+                        <tbody id="streamingRows">
+                        </tbody>
+                    </table></div>
+                </div>
+            </div>
+
+            <!-- AI TOOLS -->
+            <div class="cat-accordion" data-cat="ai">
+                <div class="cat-header" onclick="toggleCat(this)">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+                    <div class="cat-meta"><div class="cat-name">AI &amp; Tools</div><div class="cat-desc">ChatGPT, Gemini Advanced, VPN premium</div></div>
+                    <div class="cat-badges"><span class="cat-count">6</span><svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+                </div>
+                <div class="cat-body">
+                    <div class="tbl-wrap"><table>
+                        <thead><tr><th>Produk</th><th style="text-align:right">Harga</th><th style="text-align:center">Order</th></tr></thead>
+                        <tbody id="aiRows"></tbody>
+                    </table></div>
+                </div>
+            </div>
+
+            <!-- NOKOS -->
+            <div class="cat-accordion" data-cat="nokos">
+                <div class="cat-header" onclick="toggleCat(this)">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <div class="cat-meta"><div class="cat-name">Nokos &amp; Kebsos</div><div class="cat-desc">Murid nokos, kebsos, &amp; akun fresh berbagai region</div></div>
+                    <div class="cat-badges"><span class="cat-count">8</span><svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+                </div>
+                <div class="cat-body">
+                    <div class="tbl-wrap"><table>
+                        <thead><tr><th>Produk</th><th style="text-align:right">Harga</th><th style="text-align:center">Order</th></tr></thead>
+                        <tbody>
+                            <tr><td class="td-name">Murid Nokos</td><td class="td-price">Rp10K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+MURID+NOKOS+10K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Murid Kebsos</td><td class="td-price">Rp10K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+MURID+KEBSOS+10K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Nokos Indo Fresh</td><td class="td-price">Rp7K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+NOKOS+INDO+FRESH+7K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Nokos Indo Save</td><td class="td-price">Rp10K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+NOKOS+INDO+SAVE+10K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Nokos SGP Fresh</td><td class="td-price">Rp10K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+NOKOS+SGP+FRESH+10K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Nokos SGP Save</td><td class="td-price">Rp15K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+NOKOS+SGP+SAVE+15K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Nokos MLY Fresh</td><td class="td-price">Rp8K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+NOKOS+MLY+FRESH+8K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                            <tr><td class="td-name">Nokos MLY Save</td><td class="td-price">Rp15K</td><td class="td-order"><a href="https://wa.me/628978595858?text=Halo+Kak+Reviza%2C+saya+mau+order+NOKOS+MLY+SAVE+15K" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a></td></tr>
+                        </tbody>
+                    </table></div>
+                </div>
+            </div>
+
+            <!-- KENAPA HARUS PILIH KAMI? (NEW SECTION) -->
+            <hr class="divider" style="margin-top:24px;" />
+            <div class="sec-title">✦ Kenapa Harus Pilih Kami?</div>
+            <div class="why-us">
+                <div class="why-card">
+                    <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                    <div class="why-title">Respon Cepat 24 Jam</div>
+                    <div class="why-desc">Admin aktif setiap hari, siap melayani order kapan saja — pagi, siang, malam, bahkan dini hari.</div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <div class="why-title">Garansi Full (S&amp;K)</div>
+                    <div class="why-desc">Semua produk bergaransi resmi. Jika ada kendala, admin langsung proses penggantian sesuai ketentuan.</div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
+                    <div class="why-title">Terpercaya &amp; Berpengalaman</div>
+                    <div class="why-desc">Sudah ratusan buyer puas sejak 2022. Track record jelas, testimoni nyata, bukan toko asal-asalan.</div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                    <div class="why-title">Harga Paling Terjangkau</div>
+                    <div class="why-desc">Harga bersahabat tanpa mengorbankan kualitas. Tersedia paket hemat untuk semua kebutuhan.</div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                    <div class="why-title">Proses Instan</div>
+                    <div class="why-desc">Order langsung diproses — tidak perlu menunggu lama. Sebagian besar produk dikirim dalam hitungan menit.</div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                    <div class="why-title">Konsultasi Gratis</div>
+                    <div class="why-desc">Bingung pilih produk mana? Tanya dulu! Admin siap bantu rekomendasikan yang paling cocok buatmu.</div>
+                </div>
+            </div>
+
+            <!-- NAV BUTTONS BOTTOM REMOVED - MOVED TO TOP -->
+
+            <div class="footer">
+                &copy; <b>ZAAPRST</b> 2024–2026<br>Creator Preset Alight Motion<br>
+                <span style="font-size:9px;margin-top:4px;display:block;color:rgba(209,179,232,0.3);">revizayowa.biz.id</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: PAY -->
+    <!-- ============================================================ -->
+    <main class="main pay-main" id="page-pay" style="display:none;">
+        <div class="page active" id="pagePay">
+            <div class="page-title">
+                <h1>METODE PEMBAYARAN</h1>
+                <p>Pilih metode yang paling nyaman</p>
+            </div>
+
+            <!-- NAV BUTTONS — ATAS -->
+            <div class="nav-btns" style="margin-bottom:18px;">
+                <button class="nav-btn primary" onclick="navigateTo('/produk')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    Lihat Daftar Produk
+                </button>
+                <a href="https://wa.me/628978595858" class="nav-btn primary" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Chat WhatsApp Admin
+                </a>
+                <button class="nav-btn secondary" onclick="navigateTo('/')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Kembali ke Beranda
+                </button>
+            </div>
+
+            <div class="pay-card">
+                <!-- QRIS -->
+                <div class="qris-section">
+                    <div class="qris-header">
+                        <div class="qris-header-badge">QRIS</div>
+                        <div class="qris-header-tag">Universal</div>
+                    </div>
+                    <div class="qris-outer">
+                        <div class="qris-inner">
+                            <img src="https://cdn.nekohime.site/file/xngjsiiq.jpeg" alt="QRIS REVIZA — Scan untuk membayar" />
+                            <div class="qris-label">REVIZA · ZAAPRST</div>
+                            <div class="qris-name">Muhammad Reviza Floryan</div>
+                        </div>
+                    </div>
+                    <p class="qris-hint">📷 Scan dengan kamera atau aplikasi E-Wallet / M-Banking</p>
+                    <div class="qris-apps">
+                        <span class="qris-app-tag">GoPay</span><span class="qris-app-tag">OVO</span>
+                        <span class="qris-app-tag">DANA</span><span class="qris-app-tag">ShopeePay</span>
+                        <span class="qris-app-tag">LinkAja</span><span class="qris-app-tag">BCA</span>
+                        <span class="qris-app-tag">BRI</span><span class="qris-app-tag">Mandiri</span>
+                        <span class="qris-app-tag">BNI</span>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <!-- DANA -->
+                <div class="transfer-section">
+                    <div class="transfer-header">
+                        <div class="transfer-header-badge">Transfer Manual</div>
+                        <div class="transfer-header-tag">DANA</div>
+                    </div>
+                    <div class="transfer-box">
+                        <div class="transfer-app-row">
+                            <div class="transfer-app-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h5c4.4 0 8 3.6 8 8s-3.6 8-8 8H6V4zm2 2v12h3c3.3 0 6-2.7 6-6s-2.7-6-6-6H8z"/></svg>
+                            </div>
+                            <div class="transfer-app-name">DANA</div>
+                        </div>
+                        <div class="transfer-number" id="danaNum">08978595858</div>
+                        <div class="transfer-name">A/N: Muhammad Reviza Floryan</div>
+                        <button class="btn-copy" id="btnCopy" onclick="copyDana()">
+                            <svg id="copyIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <span id="copyText">Salin Nomor</span>
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <!-- CARA BAYAR -->
+                <div class="steps">
+                    <div class="steps-title">Cara Pembayaran</div>
+                    <div class="step"><div class="step-num">1</div><div class="step-text">Pilih produk di <strong>halaman produk</strong>, catat nama &amp; harganya.</div></div>
+                    <div class="step"><div class="step-num">2</div><div class="step-text">Bayar via <strong>QRIS</strong> (scan) atau <strong>DANA Transfer</strong> (salin nomor) sesuai nominal.</div></div>
+                    <div class="step"><div class="step-num">3</div><div class="step-text">Kirim <strong>screenshot bukti bayar</strong> ke WhatsApp admin beserta nama produk.</div></div>
+                    <div class="step"><div class="step-num">4</div><div class="step-text">Admin proses &amp; kirim produk. <strong>Fast respon!</strong></div></div>
+                </div>
+            </div>
+
+            <!-- NAV BOTTOM REMOVED - MOVED TO TOP -->
+
+            <div class="footer">
+                &copy; <b>ZAAPRST</b> 2024–2026<br>
+                <span style="font-size:9px;margin-top:4px;display:block;color:rgba(209,179,232,0.3);">Pembayaran aman &amp; terpercaya</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // Particle system replaced with pure CSS (no canvas JS needed)
+
+    // Loading brand typewriter removed (new REVIZA orbit animation used instead)
+
+    // ============================================================
+    // LOADING PROGRESS
+    // ============================================================
+    const ldBar = document.getElementById('ldBar');
+    const ldStatus = document.getElementById('ldStatus');
+    const ldPctEl = document.getElementById('ldPct');
+    const ldBtn = document.getElementById('ldBtn');
+    const loadSteps = [
+        { at: 20, msg: 'Menginisialisasi sistem...' },
+        { at: 40, msg: 'Memeriksa koneksi...' },
+        { at: 65, msg: 'Memuat data pengguna...' },
+        { at: 85, msg: 'Sinkronisasi konten...' },
+        { at: 100, msg: 'Sistem siap!' },
+    ];
+    let ldPct = 0, ldStep = 0;
+    function loadTick() {
+        ldPct = Math.min(100, ldPct + Math.random() * 4 + 1.5);
+        ldBar.style.width = ldPct + '%';
+        ldPctEl.textContent = Math.floor(ldPct) + '%';
+        while (ldStep < loadSteps.length && ldPct >= loadSteps[ldStep].at) { ldStatus.textContent = loadSteps[ldStep].msg; ldStep++; }
+        if (ldPct < 100) setTimeout(loadTick, 60);
+        else ldBtn.style.display = 'inline-block';
+    }
+    setTimeout(loadTick, 250);
+
+    // ============================================================
+    // CLICK SOUND
+    // ============================================================
+    const clickSnd = document.getElementById('clickSnd');
+    document.addEventListener('click', e => {
+        if (e.target.closest('a, button, .abtn, .player, .hamburger, .cat-header')) {
+            clickSnd.currentTime = 0; clickSnd.play().catch(() => {});
+        }
+    });
+
+    // ============================================================
+    // DYNAMIC PRODUCT ROWS (Streaming & AI)
+    // ============================================================
+    function makeWaBtn(produk, text) {
+        const msg = encodeURIComponent('Halo Kak Reviza, saya mau order ' + produk);
+        return `<a href="https://wa.me/628978595858?text=${msg}" class="btn-order" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a>`;
+    }
+    const streamingData = [
+        ['CapCut 1 Bulan','Rp35K'],['CapCut 7 Hari','Rp8.5K'],
+        ['Netflix 1P2U','Rp22K'],['Netflix 1P1U','Rp35K'],
+        ['Spotify 1 Bulan','Rp28K'],['Spotify Sharing','Rp20K'],
+        ['YouTube Email Buyer','Rp20K'],['YouTube Email Seller','Rp10K'],
+        ['WeTV VIP 1 Bulan','Rp65K'],['WeTV VIP 3 Bulan','Rp140K'],
+        ['Prime Video 1 Bulan','Rp15K'],['Vidio 1 Bulan','Rp30K'],
+        ['VIU Lifetime','Rp25K'],['Remini 7 Hari','Rp8K'],
+        ['Picsart 1 Bulan','Rp12K'],['Zoom 1 Minggu','Rp6K'],
+        ['Wink 7 Hari','Rp8.5K'],['BStation 1 Bulan','Rp50K'],
+        ['Loklok 1 Bulan','Rp25K'],
+    ];
+    const aiData = [
+        ['ChatGPT 7 Hari','Rp6K'],['ChatGPT 1 Bulan','Rp20K'],
+        ['ChatGPT Private','Rp45K'],['Gemini 3 Bulan','Rp50K'],
+        ['VPN 7 Hari','Rp6K'],['VPN 1 Bulan','Rp18K'],
+    ];
+    document.getElementById('streamingRows').innerHTML = streamingData.map(([n,p]) =>
+        `<tr><td class="td-name">${n}</td><td class="td-price">${p}</td><td class="td-order">${makeWaBtn(n.toUpperCase()+' '+p, n)}</td></tr>`
+    ).join('');
+    document.getElementById('aiRows').innerHTML = aiData.map(([n,p]) =>
+        `<tr><td class="td-name">${n}</td><td class="td-price">${p}</td><td class="td-order">${makeWaBtn(n.toUpperCase()+' '+p, n)}</td></tr>`
+    ).join('');
+
+    // ============================================================
+    // SPA ROUTER
+    // ============================================================
+    const routes = {
+        '/': { main: 'page-home', title: 'REVIZA · LINK SOSMED & PRODUK', headerType: 'home' },
+        '/produk': { main: 'page-produk', title: 'REVIZA · Daftar Produk', headerType: 'back' },
+        '/pay': { main: 'page-pay', title: 'REVIZA · Pembayaran', headerType: 'back' },
+    };
+    const allMains = ['page-home', 'page-produk', 'page-pay'];
+    const headerLogo = document.getElementById('headerLogo');
+    const backBtn = document.getElementById('backBtn');
+
+    function navigateTo(path, push = true) {
+        const route = routes[path] || routes['/'];
+        allMains.forEach(id => document.getElementById(id).style.display = 'none');
+        document.getElementById(route.main).style.display = '';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.title = route.title;
+        if (push) history.pushState({ path }, '', path);
+        if (route.headerType === 'home') {
+            headerLogo.style.display = '';
+            backBtn.style.display = 'none';
+        } else {
+            headerLogo.style.display = 'none';
+            backBtn.style.display = '';
+        }
+        // Fade in elements on new page
+        setTimeout(() => {
+            document.querySelectorAll('#' + route.main + ' .fade').forEach(el => {
+                el.classList.add('in');
+            });
+        }, 80);
+        // Re-run REVIZA typewriter on newly shown page
+        setTimeout(initRevizaTyped, 200);
+    }
+
+    window.addEventListener('popstate', e => {
+        const path = e.state?.path || window.location.pathname;
+        navigateTo(path, false);
+    });
+
+    // ============================================================
+    // START APP (after loading)
+    // ============================================================
+    function startApp() {
+        document.getElementById('loading').classList.add('hide');
+        // Determine initial route
+        const initPath = window.location.pathname;
+        navigateTo(routes[initPath] ? initPath : '/', false);
+        renderTestimonials();
+        startMonitor();
+        tryAutoplay();
+        setTimeout(() => {
+            document.querySelectorAll('.fade').forEach(el => fadeObs.observe(el));
+        }, 200);
+    }
+
+    // ============================================================
+    // FADE OBSERVER
+    // ============================================================
+    const fadeObs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.06 });
+
+    // ============================================================
+    // MUSIC PLAYER (single global)
+    // ============================================================
+    const music = document.getElementById('bgMusic');
+    const disc = document.getElementById('disc');
+    const songDuration = document.getElementById('songDuration');
+    const iconPlay = document.getElementById('iconPlay');
+    const iconPause = document.getElementById('iconPause');
+    const specContainer = document.getElementById('specBars');
+    const specBarsArr = [];
+    for (let i = 0; i < 12; i++) {
+        const b = document.createElement('span'); b.style.height = '3px';
+        specContainer.appendChild(b); specBarsArr.push(b);
+    }
+    let specInt = null;
+    function startSpec() {
+        if (specInt) return;
+        specInt = setInterval(() => { specBarsArr.forEach(b => { b.style.height = (Math.floor(Math.random() * 18) + 3) + 'px'; }); }, 90);
+    }
+    function stopSpec() { clearInterval(specInt); specInt = null; specBarsArr.forEach(b => b.style.height = '3px'); }
+    function setPlaying(playing) {
+        if (playing) { disc.classList.add('playing'); iconPlay.style.display = 'none'; iconPause.style.display = ''; startSpec(); }
+        else { disc.classList.remove('playing'); iconPlay.style.display = ''; iconPause.style.display = 'none'; songDuration.textContent = '▷ Tekan untuk putar'; stopSpec(); }
+    }
+    document.getElementById('musicPlayer').addEventListener('click', () => {
+        if (music.paused) music.play().then(() => setPlaying(true)).catch(() => {});
+        else { music.pause(); setPlaying(false); }
+    });
+    setInterval(() => {
+        if (!music.paused && !isNaN(music.duration)) {
+            const c = music.currentTime, d = music.duration;
+            const fmt = s => String(Math.floor(s/60)).padStart(2,'0') + ':' + String(Math.floor(s%60)).padStart(2,'0');
+            songDuration.textContent = '▶ ' + fmt(c) + ' / ' + fmt(d);
+        }
+    }, 1000);
+
+    // Autoplay with error handling
+    function tryAutoplay() {
+        music.play().then(() => { setPlaying(true); }).catch(() => {
+            // Autoplay blocked — wait for first user interaction
+            const onInteract = () => {
+                music.play().then(() => { setPlaying(true); }).catch(() => {});
+                document.removeEventListener('click', onInteract);
+                document.removeEventListener('touchstart', onInteract);
+            };
+            document.addEventListener('click', onInteract, { once: true });
+            document.addEventListener('touchstart', onInteract, { once: true, passive: true });
+        });
+    }
+
+    // ============================================================
+    // VIDEO OBSERVER
+    // ============================================================
+    const vidObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            const v = document.getElementById('mainVideo');
+            if (!v) return;
+            if (e.isIntersecting) v.play().catch(() => {}); else v.pause();
+        });
+    }, { threshold: 0.15 });
+    setTimeout(() => {
+        const vb = document.querySelector('.vidbox');
+        if (vb) vidObs.observe(vb);
+    }, 600);
+
+    // ============================================================
+    // HAMBURGER
+    // ============================================================
+    const hamburger = document.getElementById('hamburger');
+    const drawer = document.getElementById('drawer');
+    const overlay = document.getElementById('overlay');
+    function toggleDrawer() {
+        const open = drawer.classList.toggle('open');
+        overlay.classList.toggle('show');
+        document.body.classList.toggle('no-scroll', open);
+    }
+    hamburger.addEventListener('click', toggleDrawer);
+    overlay.addEventListener('click', toggleDrawer);
+
+    // ============================================================
+    // SYSTEM MONITOR
+    // ============================================================
+    let monSec = 0, monInt = null;
+    function startMonitor() {
+        if (monInt) return;
+        monInt = setInterval(() => {
+            monSec++;
+            const pad = n => String(n).padStart(2, '0');
+            document.getElementById('uptimeVal').textContent = pad(Math.floor(monSec/3600)) + ':' + pad(Math.floor((monSec%3600)/60)) + ':' + pad(monSec%60);
+            const cpu = Math.floor(Math.random()*35)+40, ram = Math.floor(Math.random()*20)+65;
+            document.getElementById('cpuVal').textContent = cpu + '%'; document.getElementById('cpuFill').style.width = cpu + '%';
+            document.getElementById('ramVal').textContent = ram + '%'; document.getElementById('ramFill').style.width = ram + '%';
+            document.getElementById('pingVal').textContent = Math.random() > 0.15 ? (Math.floor(Math.random()*80)+20) + 'ms' : 'TIMEOUT';
+            document.getElementById('monTime').textContent = new Date().toTimeString().slice(0, 8);
+        }, 1500);
+    }
+
+    // ============================================================
+    // TESTIMONIALS
+    // ============================================================
+    const tNames = ['Andi R','Budi S','Caca W','Deni F','Eka L','Fina M','Gita A','Hadi N','Irfan K','Joko P','Kiki O','Lina H'];
+    const tProds = ['Aplikasi Premium','Preset Alight Motion','Nokos WA','Bot WA Script','Panel Server'];
+    const tTmpl = ['Order {p} mantap, admin fast respon!','{p} kualitasnya juara, harga worth it!','Langganan {p} gak pernah kecewa. 5 bintang!','Proses {p} cepet banget, langsung jadi.','Beli {p} di sini ternyata ada bonus. Thanks!'];
+    function renderTestimonials() {
+        const el = document.getElementById('testiList');
+        const wrapper = el.parentElement;
+        let html = '';
+        for (let i = 0; i < 12; i++) {
+            const n = tNames[i % tNames.length] + ' ' + Math.floor(Math.random()*90+10);
+            const p = tProds[Math.floor(Math.random()*tProds.length)];
+            const t = tTmpl[Math.floor(Math.random()*tTmpl.length)].replace('{p}', p);
+            const stars = '★★★★' + (Math.random() > 0.2 ? '★' : '☆');
+            html += `<div class="testi-item"><div class="testi-head"><img src="https://i.pravatar.cc/80?img=${(i*7+3)%70+1}" alt="${n}" loading="lazy"><div><div class="testi-name">${n}</div><div class="testi-stars">${stars}</div></div></div><div class="testi-quote">"${t}"</div></div>`;
+        }
+        el.innerHTML = html + html;
+        let paused = false;
+        function autoScroll() {
+            if (!paused) {
+                wrapper.scrollLeft += 1;
+                if (wrapper.scrollLeft >= wrapper.scrollWidth / 2) wrapper.scrollLeft = 0;
+            }
+            requestAnimationFrame(autoScroll);
+        }
+        wrapper.addEventListener('mousedown', () => { paused = true; });
+        document.addEventListener('mouseup', () => { paused = false; });
+        wrapper.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+        document.addEventListener('touchend', () => { paused = false; });
+        requestAnimationFrame(autoScroll);
+    }
+
+    // ============================================================
+    // ACCORDION TOGGLE (Produk)
+    // ============================================================
+    function toggleCat(header) {
+        const body = header.nextElementSibling;
+        const isOpen = header.classList.contains('open');
+        header.classList.toggle('open', !isOpen);
+        body.classList.toggle('open', !isOpen);
+    }
+
+    // ============================================================
+    // SEARCH (Produk)
+    // ============================================================
+    document.getElementById('searchInput').addEventListener('input', function() {
+        const q = this.value.toLowerCase().trim();
+        const accordions = document.querySelectorAll('.cat-accordion');
+        let totalVisible = 0;
+        accordions.forEach(acc => {
+            const body = acc.querySelector('.cat-body');
+            const header = acc.querySelector('.cat-header');
+            const trs = acc.querySelectorAll('tbody tr');
+            let catVisible = 0;
+            trs.forEach(tr => {
+                const name = tr.querySelector('.td-name')?.textContent.toLowerCase() || '';
+                const show = !q || name.includes(q);
+                tr.classList.toggle('hidden-row', !show);
+                if (show) catVisible++;
+            });
+            if (q && catVisible > 0) { header.classList.add('open'); body.classList.add('open'); }
+            totalVisible += catVisible;
+        });
+        document.getElementById('noResults').style.display = (q && totalVisible === 0) ? 'block' : 'none';
+    });
+
+    // ============================================================
+    // COPY DANA
+    // ============================================================
+    function showToast(msg, ok) {
+        const t = document.getElementById('copyToast');
+        t.textContent = msg;
+        t.style.borderColor = ok ? 'rgba(34,197,94,0.5)' : 'rgba(248,113,113,0.5)';
+        t.style.color = ok ? '#86efac' : '#fca5a5';
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2500);
+    }
+    function copyDana() {
+        const num = document.getElementById('danaNum').textContent.trim();
+        const btn = document.getElementById('btnCopy');
+        const span = document.getElementById('copyText');
+        const icon = document.getElementById('copyIcon');
+        function onSuccess() {
+            btn.classList.add('copied'); span.textContent = 'Tersalin!';
+            icon.innerHTML = '<polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>';
+            showToast('✅ ' + num + ' berhasil disalin!', true);
+            setTimeout(() => { btn.classList.remove('copied'); span.textContent = 'Salin Nomor'; icon.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'; }, 2500);
+        }
+        function onFail() {
+            try {
+                const el = document.getElementById('danaNum');
+                const range = document.createRange(); range.selectNode(el);
+                window.getSelection().removeAllRanges(); window.getSelection().addRange(range);
+                const ok = document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+                if (ok) { onSuccess(); return; }
+            } catch(e) {}
+            btn.classList.add('error'); span.textContent = 'Salin manual';
+            showToast('Salin manual: ' + num, false);
+            setTimeout(() => { btn.classList.remove('error'); span.textContent = 'Salin Nomor'; }, 2500);
+            window.prompt('Salin nomor DANA ini:', num);
+        }
+        if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(num).then(onSuccess).catch(onFail);
+        else onFail();
+    }
+
+    // ============================================================
+    // REVIZA TYPEWRITER EFFECT
+    // ============================================================
+    // Applies to all elements with class "reviza-typed"
+    function initRevizaTyped() {
+        document.querySelectorAll('.reviza-typed:not([data-typed-init])').forEach(el => {
+            el.dataset.typedInit = '1';
+            const original = el.textContent.trim();
+            let idx = 0, deleting = false;
+            el.style.minWidth = el.offsetWidth + 'px'; // prevent layout shift
+            function typeStep() {
+                if (!deleting) {
+                    el.textContent = original.substring(0, idx + 1);
+                    idx++;
+                    if (idx === original.length) { deleting = true; setTimeout(typeStep, 2200); return; }
+                } else {
+                    el.textContent = original.substring(0, idx - 1);
+                    idx--;
+                    if (idx === 0) { deleting = false; }
+                }
+                setTimeout(typeStep, deleting ? 80 : 120);
+            }
+            typeStep();
+        });
+    }
+
+    // Logo typewriter (header)
+    const logoEl = document.getElementById('headerLogo');
+    const logoPhrases = ['✦ REVIZA', '✦ ZAYUYO SITE', '✦ REVIZA'];
+    let lPIdx = 0, lCIdx = 0, lDel = false;
+    function logoTypeLoop() {
+        const target = logoPhrases[lPIdx];
+        if (!lDel) {
+            logoEl.textContent = target.substring(0, lCIdx + 1); lCIdx++;
+            if (lCIdx === target.length) { lDel = true; setTimeout(logoTypeLoop, 2200); return; }
+        } else {
+            logoEl.textContent = target.substring(0, lCIdx - 1); lCIdx--;
+            if (lCIdx === 0) { lDel = false; lPIdx = (lPIdx + 1) % logoPhrases.length; }
+        }
+        setTimeout(logoTypeLoop, lDel ? 80 : 120);
+    }
+    setTimeout(logoTypeLoop, 1200);
+
+    </script>
+</body>
+</html>
