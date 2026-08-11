@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>REVIZA · LINK SOSMED &amp; PRODUK</title>
+    
+    <!-- Meta SEO & Social Media -->
+    <meta name="description" content="SALAH SATU KEGAGALANMU DI MASA DEPAN ADALAH KERAGUANMU SAAT INI — REVIZA • Alight Motion Preset." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="REVIZA WEBSITE" />
+    <meta property="og:url" content="https://revizayowa.biz.id/" />
+    <meta property="og:title" content="REVIZA • SITE" />
+    <meta property="og:description" content="SALAH SATU KEGAGALANMU DI MASA DEPAN ADALAH KERAGUANMU SAAT INI." />
+    <meta property="og:image" content="https://athars.space/uploads/fcc0334f.jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="REVIZA • SITE" />
+    <meta name="twitter:description" content="SALAH SATU KEGAGALANMU DI MASA DEPAN ADALAH KERAGUANMU SAAT INI." />
+    <meta name="twitter:image" content="https://athars.space/uploads/fcc0334f.jpeg" />
+    <meta name="theme-color" content="#000000" />
+
+    <style>
+        /* CSS Murni - Tema Hitam Putih */
+        * { 
+            box-sizing: border-box; 
+        }
+        body, html {
+            margin: 0; padding: 0;
+            width: 100%; 
+            min-height: 100vh;
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* --- Animasi Kotak Background Melayang --- */
+        .bg-squares {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .bg-square {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: transparent;
+            bottom: -100px;
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        }
+        .bg-square:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-duration: 12s; animation-delay: 0s; }
+        .bg-square:nth-child(2) { left: 30%; width: 60px; height: 60px; animation-duration: 18s; animation-delay: 2s; }
+        .bg-square:nth-child(3) { left: 60%; width: 30px; height: 30px; animation-duration: 10s; animation-delay: 5s; }
+        .bg-square:nth-child(4) { left: 80%; width: 70px; height: 70px; animation-duration: 22s; animation-delay: 1s; }
+        .bg-square:nth-child(5) { left: 45%; width: 50px; height: 50px; animation-duration: 15s; animation-delay: 4s; }
+        .bg-square:nth-child(6) { left: 85%; width: 35px; height: 35px; animation-duration: 14s; animation-delay: 7s; }
+        .bg-square:nth-child(7) { left: 15%; width: 80px; height: 80px; animation-duration: 25s; animation-delay: 6s; }
+
+        /* Container Utama */
+        .container {
+            padding: 15px;
+            max-width: 600px;
+            width: 100%;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* --- Animasi Kotak 3D di Puncak --- */
+        .scene {
+            width: 80px; height: 80px;
+            perspective: 400px;
+            margin: 0 auto 20px;
+        }
+        .cube {
+            width: 100%; height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: spinCube 6s infinite linear;
+        }
+        .cube-face {
+            position: absolute;
+            width: 80px; height: 80px;
+            border: 2px solid #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .cube-face.front  { transform: rotateY(  0deg) translateZ(40px); }
+        .cube-face.back   { transform: rotateY(180deg) translateZ(40px); }
+        .cube-face.right  { transform: rotateY( 90deg) translateZ(40px); }
+        .cube-face.left   { transform: rotateY(-90deg) translateZ(40px); }
+        .cube-face.top    { transform: rotateX( 90deg) translateZ(40px); }
+        .cube-face.bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+        @keyframes spinCube {
+            0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+        }
+
+        /* Styling Video Banner (Landscape) */
+        .brand-image {
+            width: 100%;
+            max-width: 450px;
+            height: 180px;
+            object-fit: cover;
+            border: 2px solid #ffffff;
+            margin-bottom: 15px;
+            background-color: #111; /* Warna dasar jika video telat loading */
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ffffff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        /* --- Panel Monitoring Server --- */
+        .server-panel {
+            border: 1px solid #333333;
+            background-color: rgba(10, 10, 10, 0.8);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 10px;
+            backdrop-filter: blur(5px);
+        }
+        .stat-box {
+            text-align: center;
+            flex: 1;
+        }
+        .stat-label { font-size: 0.75rem; color: #888888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .stat-value { font-size: 1.1rem; font-weight: bold; font-family: monospace; transition: color 0.3s; }
+        
+        /* Mini Chart CSS Animasi */
+        .mini-chart { display: flex; align-items: flex-end; height: 30px; gap: 3px; justify-content: center; flex: 1; }
+        .bar { width: 6px; background-color: #ffffff; animation: bounceBar 1.5s infinite alternate ease-in-out; }
+        .bar:nth-child(1) { animation-delay: 0.1s; height: 10px; }
+        .bar:nth-child(2) { animation-delay: 0.3s; height: 25px; }
+        .bar:nth-child(3) { animation-delay: 0.5s; height: 15px; }
+        .bar:nth-child(4) { animation-delay: 0.2s; height: 30px; }
+        .bar:nth-child(5) { animation-delay: 0.6s; height: 20px; }
+
+        @keyframes bounceBar {
+            0% { height: 5px; }
+            100% { height: 30px; }
+        }
+
+        /* --- Box Maintenance & Button --- */
+        .status-box {
+            border: 1px solid #ffffff;
+            padding: 15px;
+            display: inline-block;
+            margin-bottom: 25px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .highlight { color: #ffffff; font-weight: bold; font-size: 1.2rem; letter-spacing: 2px;}
+
+        .btn-contact {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid #ffffff;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-contact:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* =========================================
+           RESPONSIVENESS UNTUK LAYAR HP ANDROID 
+           ========================================= */
+        @media (max-width: 480px) {
+            .scene {
+                transform: scale(0.8);
+                margin-bottom: 10px;
+            }
+            .brand-image {
+                height: 120px;
+                margin-bottom: 15px;
+            }
+            h1 {
+                font-size: 1.5rem;
+                letter-spacing: 3px;
+            }
+            p {
+                font-size: 0.85rem;
+                margin-bottom: 15px;
+            }
+            .server-panel { 
+                flex-wrap: wrap; 
+                padding: 10px;
+            }
+            .stat-value {
+                font-size: 0.95rem;
+            }
+            .stat-label {
+                font-size: 0.65rem;
+            }
+            .mini-chart { 
+                min-width: 100%; 
+                margin: 5px 0 10px 0; 
+                order: -1; 
+            }
+            .status-box {
+                padding: 12px;
+                margin-bottom: 20px;
+            }
+            .highlight {
+                font-size: 1rem;
+            }
+            .btn-contact {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Latar Belakang Kotak Melayang -->
+    <div class="bg-squares">
+        <div class="bg-square"></div>
+        <div class="bg-square"></div>
+        <div class="bg-square"></div>
+        <div class="bg-square"></div>
+        <div class="bg-square"></div>
+        <div class="bg-square"></div>
+        <div class="bg-square"></div>
+    </div>
+
+    <div class="container">
+        <!-- Animasi 3D Cube Puncak -->
+        <div class="scene">
+            <div class="cube">
+                <div class="cube-face front"></div>
+                <div class="cube-face back"></div>
+                <div class="cube-face right"></div>
+                <div class="cube-face left"></div>
+                <div class="cube-face top"></div>
+                <div class="cube-face bottom"></div>
+            </div>
+        </div>
+
+        <!-- Video Banner Landscape -->
+        <!-- GANTI TULISAN "LINK_VIDEO_KAMU_DI_SINI.mp4" DENGAN LINK VIDEO ASLIMU -->
+        <video class="brand-image" autoplay loop muted playsinline>
+            <source src="https://athars.space/uploads/235a90fe.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <br>
+
+        <h1>SYSTEM OFFLINE</h1>
+        
+        <p>Sistem sedang dalam proses pembaruan infrastruktur.<br>Mohon maaf atas ketidaknyamanannya.</p>
+        
+        <!-- Panel Monitoring Server -->
+        <div class="server-panel">
+            <div class="stat-box">
+                <div class="stat-label">CPU LOAD</div>
+                <div class="stat-value" id="cpu-usage">12%</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">RAM USAGE</div>
+                <div class="stat-value" id="ram-usage">2.4 GB</div>
+            </div>
+            <div class="mini-chart">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">PING</div>
+                <div class="stat-value" id="ping-ms">24 ms</div>
+            </div>
+        </div>
+
+        <!-- Status & Waktu -->
+        <div class="status-box">
+            <p style="margin: 0 0 5px 0; color: #cccccc;">Estimasi waktu pengerjaan:</p>
+            <span class="highlight">4 HAR</span>
+        </div>
+
+        <!-- Button Hubungi Kami (Link WhatsApp) -->
+        <a href="https://wa.me/628978595858" target="_blank" class="btn-contact">HUBUNGI KAMI</a>
+    </div>
+
+    <!-- Script Simulasi Monitoring Server -->
+    <script>
+        setInterval(() => {
+            const cpu = Math.floor(Math.random() * 25) + 10;
+            const cpuElement = document.getElementById('cpu-usage');
+            cpuElement.innerText = cpu + "%";
+            cpuElement.style.color = cpu > 25 ? "#ffffff" : "#cccccc";
+
+            const ram = (Math.random() * 1.5 + 2.0).toFixed(1);
+            document.getElementById('ram-usage').innerText = ram + " GB";
+
+            const ping = Math.floor(Math.random() * 30) + 15;
+            document.getElementById('ping-ms').innerText = ping + " ms";
+            
+        }, 2000);
+    </script>
+</body>
+</html>
