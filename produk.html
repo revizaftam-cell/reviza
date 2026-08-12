@@ -167,10 +167,10 @@
         4. Blok ini SAMA PERSIS di index.html, produk.html, dan pay.html — kalau ubah playlist, ubah di ketiga file. */
      const PLAYLIST_FOLDER="playlist/";
      const playlistRaw=[
-       { title:"Lagu 1", file:"DJ CINTA DARI SEBERANG JEDAH JEDUG REMIX [PLAT JMK] BY MASKHAT.mp3" },
-       { title:"Lagu 2", file:"DJ DENGARLAH BINTANG HATIKU JEDAG JEDUG REMIX [PLAT JMK] BY MASKHAT.mp3" },
-       { title:"Lagu 3", file:"DJ KEHILANGAN MU BERAT BAGI KU JEDAG JEDUG REMIX [PLAT JMK] BY MASKHAT.mp3" },
-       { title:"lagu 4", file:"DJ KELINGAN MANTAN JEDAG JEDUG REMIX [PLAT JMK] BY MASKHAT.mp3"}
+       { title:"DJ CINTA DARI SEBERANG", file:"musik1.mp3" },
+       { title:"DJ DENGARLAH BINTANG HATIKU", file:"musik2.mp3" },
+       { title:"DJ KEHILANGANMU BERAT BAGIKU", file:"musik3.mp3" },
+       { title:"DJ KELINGAN MANTAN", file:"musik4.mp3"}
        // tambah lagu baru di sini, contoh: , { title:"Judul Lagu Kamu", file:"nama file asli.mp3" }
      ];
      const playlist=playlistRaw.map(song=>({title:song.title,src:PLAYLIST_FOLDER+encodeURIComponent(song.file)}));
