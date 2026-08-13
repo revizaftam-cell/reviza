@@ -1,0 +1,64 @@
+/* ==========================================================================
+   REVIZA UI — style bersama: anti-copy, navbar auth, modal, form profil.
+   Dipakai di semua halaman lewat <link rel="stylesheet" href="assets/css/reviza-ui.css">
+   ========================================================================== */
+
+/* ---- ANTI-SALIN TEKS (lihat juga assets/js/anti-copy.js) ---- */
+html,body{
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none;
+}
+input,textarea,[contenteditable],[contenteditable="true"],[data-copyable]{
+  -webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;
+  -webkit-touch-callout:default;
+}
+a,button,.btn,input,textarea,select,[role="button"]{cursor:pointer}
+input,textarea{cursor:text}
+
+/* ---- NAVBAR AUTH (tombol login / chip user) ---- */
+.auth-slot{display:flex;align-items:center;gap:10px}
+.auth-login{padding:9px 16px;font-size:11px;white-space:nowrap}
+.auth-chip{display:flex;align-items:center;gap:8px;background:transparent;border:1px solid #2c2c2c;border-radius:999px;padding:5px 14px 5px 5px;color:#fff;transition:border-color .2s,background .2s}
+.auth-chip:hover{border-color:#fff}
+.auth-chip img{width:26px;height:26px;border-radius:50%;object-fit:cover;background:#222;border:1px solid #333}
+.auth-chip span{font-size:12px;font-weight:700;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:520px){.auth-chip span{max-width:64px}.auth-login{padding:9px 12px;font-size:10px}}
+
+/* ---- PROFIL DI DALAM DRAWER (foto + nama akun Google) ---- */
+.drawer-profile{display:flex;align-items:center;gap:12px;border:1px solid #2c2c2c;border-radius:14px;padding:12px 14px;margin-bottom:18px;color:#fff}
+.drawer-profile:hover{border-color:#fff}
+.drawer-profile img{width:42px;height:42px;border-radius:50%;object-fit:cover;background:#222;border:1px solid #333;flex:none}
+.drawer-profile span{min-width:0;display:flex;flex-direction:column}
+.drawer-profile strong{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.drawer-profile small{font-size:10.5px;color:#888;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
+
+/* ---- MODAL DASAR (dipakai coming-soon & profil) ---- */
+.rv-modal-overlay{position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.78);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+.rv-modal-overlay.show{opacity:1;visibility:visible}
+.rv-modal{position:relative;width:min(380px,100%);max-height:88vh;overflow:auto;background:linear-gradient(145deg,#141414,#0a0a0a);border:1px solid #282828;border-radius:18px;padding:28px 24px 24px;text-align:center;box-shadow:0 30px 90px rgba(0,0,0,.55);transform:scale(.95);transition:transform .25s ease}
+.rv-modal-overlay.show .rv-modal{transform:scale(1)}
+.rv-modal h3{font-size:20px;margin:4px 0 10px}
+.rv-modal p{color:#a7a7a7;font-size:13px;margin-bottom:18px}
+.rv-modal-icon{font-size:34px;margin-bottom:6px}
+.rv-modal-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border:1px solid #333;background:transparent;color:#fff;border-radius:50%;cursor:pointer;font-size:13px;line-height:1}
+
+/* ---- FORM PROFIL PENGGUNA ---- */
+.rv-profile-form{display:grid;gap:12px;text-align:left}
+.rv-profile-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;background:#1a1a1a;border:1px solid #2c2c2c;margin:0 auto 4px}
+.rv-profile-form label{display:block;font-size:11px;color:#888;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.rv-profile-form input{width:100%;margin-top:6px;background:#101010;border:1px solid #2c2c2c;border-radius:10px;padding:11px 13px;color:#fff;font-size:13px;font-weight:400;text-transform:none;letter-spacing:normal}
+.rv-profile-form input:focus{outline:none;border-color:#fff}
+.rv-profile-email{color:#777;font-weight:400;text-transform:none;letter-spacing:normal}
+.rv-profile-email span{color:#ccc}
+.rv-profile-actions{display:flex;gap:10px;margin-top:4px}
+.rv-profile-actions .btn{flex:1}
+.rv-logout-btn{border:1px solid #442222;background:transparent;color:#ff7373;border-radius:999px;padding:0 16px;font-size:12px;font-weight:700;cursor:pointer}
+.rv-logout-btn:hover{background:#ff7373;color:#050505;border-color:#ff7373}
+.rv-profile-msg{font-size:11px;color:#b7ff63;min-height:14px;text-align:center}
+
+/* ---- ADMIN DASHBOARD (admin.html) ---- */
+.admin-field{display:block;font-size:11px;color:#888;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:14px}
+.admin-field:first-child{margin-top:0}
+.admin-field input,.admin-field textarea{width:100%;margin-top:8px;background:#101010;border:1px solid #2c2c2c;border-radius:10px;padding:12px 14px;color:#fff;font-size:13px;font-family:inherit;resize:vertical}
+.admin-field input:focus,.admin-field textarea:focus{outline:none;border-color:#fff}
+.admin-warning{color:#ffb84d;font-size:11px;margin-top:12px;line-height:1.6}
