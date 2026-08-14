@@ -29,7 +29,10 @@
 
     var reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
     var anims = ["holoFloat1","holoFloat2","holoFloat3","holoFloat4","holoFloat5","holoFloat6"];
-    var count = window.innerWidth < 480 ? 14 : 20;
+    /* Jumlah shard sengaja dijaga tidak terlalu banyak — tiap shard adalah
+       layer 3D animasi sendiri, kalau kebanyakan HP kelas menengah/bawah
+       bisa nge-lag pas scroll cepat (background jadi keliatan patah-patah). */
+    var count = window.innerWidth < 480 ? 9 : 14;
 
     var holo = document.createElement("div");
     holo.className = "holo-field";
